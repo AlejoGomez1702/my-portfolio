@@ -104,33 +104,63 @@ $(window).on('resize', function() {
     nowuiKit.initNavbarImage();
 });
 
-$(document).on('click', '.navbar-toggler', function() {
+$(document).on('click', '.back-menu', function() {
     $toggle = $(this);
 
-    if (nowuiKit.misc.navbar_menu_visible == 1) {
+    // if (nowuiKit.misc.navbar_menu_visible == 1) {
         $('html').removeClass('nav-open');
         nowuiKit.misc.navbar_menu_visible = 0;
-        $('#bodyClick').remove();
+        // $('#bodyClick').remove();
         setTimeout(function() {
             $toggle.removeClass('toggled');
         }, 550);
-    } else {
-        setTimeout(function() {
-            $toggle.addClass('toggled');
-        }, 580);
-        div = '<div id="bodyClick"></div>';
-        $(div).appendTo('body').click(function() {
-            $('html').removeClass('nav-open');
-            nowuiKit.misc.navbar_menu_visible = 0;
-            setTimeout(function() {
-                $toggle.removeClass('toggled');
-                $('#bodyClick').remove();
-            }, 550);
-        });
+    // } else {
+    //     setTimeout(function() {
+    //         $toggle.addClass('toggled');
+    //     }, 580);
+    //     div = '<div id="bodyClick"></div>';
+    //     $(div).appendTo('body').click(function() {
+    //         $('html').removeClass('nav-open');
+    //         nowuiKit.misc.navbar_menu_visible = 0;
+    //         setTimeout(function() {
+    //             $toggle.removeClass('toggled');
+    //             $('#bodyClick').remove();
+    //         }, 550);
+    //     });
+
+    //     $('html').addClass('nav-open');
+    //     nowuiKit.misc.navbar_menu_visible = 1;
+    // }
+});
+
+
+$(document).on('click', '.navbar-toggler', function() {
+    $toggle = $(this);
+
+    // if (nowuiKit.misc.navbar_menu_visible == 1) {
+    //     $('html').removeClass('nav-open');
+    //     nowuiKit.misc.navbar_menu_visible = 0;
+    //     $('#bodyClick').remove();
+    //     setTimeout(function() {
+    //         $toggle.removeClass('toggled');
+    //     }, 550);
+    // } else {
+        // setTimeout(function() {
+        //     $toggle.addClass('toggled');
+        // }, 580);
+        // div = '<div id="bodyClick"></div>';
+        // $(div).appendTo('body').click(function() {
+        //     $('html').removeClass('nav-open');
+        //     nowuiKit.misc.navbar_menu_visible = 0;
+        //     setTimeout(function() {
+        //         $toggle.removeClass('toggled');
+        //         $('#bodyClick').remove();
+        //     }, 550);
+        // });
 
         $('html').addClass('nav-open');
         nowuiKit.misc.navbar_menu_visible = 1;
-    }
+    // }
 });
 
 nowuiKit = {
@@ -163,7 +193,8 @@ nowuiKit = {
                     .css('background-size', "cover")
                     .addClass('has-image');
             }
-        } else if (background_image != undefined) {
+        } 
+        else if (background_image != undefined) {
             $navbar.css('background', "")
                 .attr('data-nav-image', '' + background_image + '')
                 .css('background-size', "")
