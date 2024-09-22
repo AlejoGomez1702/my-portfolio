@@ -1,4 +1,4 @@
-/*!
+/*
 
  =========================================================
  * Now-ui-kit - v1.1.0
@@ -292,7 +292,7 @@
   opacity: 0;
 }
 
-/*! nouislider - 9.1.0 - 2016-12-10 16:00:32 */
+/* nouislider - 9.1.0 - 2016-12-10 16:00:32 */
 /* Functional styling;
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
@@ -428,7 +428,6 @@
   -webkit-transition: 300ms ease 0s;
   -moz-transition: 300ms ease 0s;
   -ms-transition: 300ms ease 0s;
-  -o-transform: 300ms ease 0s;
   transition: 300ms ease 0s;
 }
 
@@ -3932,7 +3931,6 @@ Created using IcoMoon - icomoon.io
   display: inline-block;
   font: normal normal normal 14px/1 'Nucleo Outline';
   font-size: inherit;
-  speak: none;
   text-transform: none;
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
@@ -4737,7 +4735,6 @@ Created using IcoMoon - icomoon.io
 
 .footer nav {
   display: inline-block;
-  float: left;
 }
 
 .footer ul {
@@ -7231,6 +7228,9 @@ Created using IcoMoon - icomoon.io
   width: 100%;
   position: relative;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .cc-contact-information .cc-contact {
@@ -7298,4 +7298,79 @@ a.credit {
   content: '<';
   font-size: 65px;
   color: black;
+}
+
+/* My Styles */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+#animated-text {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid white;
+  width: 100%; /* Change width to 100% */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  color: #ffffff; /* White text color for contrast */
+  font-size: 2em; /* Increase font size for better visibility */
+  animation: typing 6s steps(40, end), blink-caret .75s step-end infinite;
+  animation-fill-mode: forwards;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for better readability */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  #animated-text {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 992px) {
+  #animated-text {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  #animated-text {
+    font-size: 1.25em;
+  }
+}
+
+@media (max-width: 576px) {
+  #animated-text {
+    font-size: 1em;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .title {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 992px) {
+  .title {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 1.5em;
+  }
 }

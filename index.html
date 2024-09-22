@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="./images/favicon/favicon.png"/>
-    <title>Portfolio L.A.G.C</title>
+    <link rel="icon" type="image/png" href="./images/favicon/favicon-pc.png"/>
+    <title>Alejandro Gómez</title>
     <meta name="description" content="Alejandro Gómez Full-Stack Developer"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -19,7 +19,6 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
           <div class="container">
             <div class="navbar-translate">
-              <!-- <a class="navbar-brand" href="#" rel="tooltip">Creative CV</a> -->
               <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation">
@@ -47,13 +46,13 @@
               <div class="page-header-image" data-parallax="true" style="background-image: url('images/background.jpg');"></div>
               <div class="container">
                 <div class="content-center">
+                  <div class="h1 title">Alejandro Gómez</div>
                   <div class="cc-profile-image">
                     <a href="#">
                       <img src="images/profile.jpg" alt="Image"/>
                     </a>
-                  </div>
-                  <div class="h1 title">Alejandro Gómez</div>
-                  <p class="h3 category text-white">Software Architect & Full-Stack Developer</p>
+                  </div>                  
+                  <p id="animated-text" class="h4 text-white"></p>
                   <!-- <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a> -->
                   <a class="btn btn-primary" href="docs/Alejandro Gómez C.V (18-06-2024).pdf" download="CV Alejandro Gomez" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
                 </div>
@@ -80,9 +79,17 @@
               <div class="row">
                 <div class="col-lg-6 col-md-12">
                   <div class="card-body">
-                    <div class="h4 mt-0 title">About</div>
-                    <p>I am a developer passionate about the world of technology.</p>
-                    <p>I am a responsible, helpful, creative, agile person and open to acquiring new knowledge. I easily work at both individual and teamwork levels, with abilities and aptitudes to apply my knowledge in the analysis, designing, implementation, testing, deployment, maintenance, and updating of various software patterns.</p>
+                    <div class="h4 mt-0 title">
+                      About Me 
+                      <i class="fa fa-smile-o"></i>
+                    </div>
+                    <p>
+                      I am a Software Architect and Full-Stack Developer with over 4 years of experience leading teams and 
+                      designing maintainable, scalable, resilient, and efficient technological solutions. My expertise 
+                      lies in developing high-quality software, implementing CI/CD practices, optimizing cloud environments, 
+                      and adopting agile methodologies such as Scrum. I focus on delivering products that align with client 
+                      needs and support business growth.
+                    </p>
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -93,15 +100,17 @@
                       <div class="col-sm-8">Luis Alejandro Gómez Castaño</div>
                     </div>
                     <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
-                      <div id="age" class="col-sm-8"></div>
-                      <script>
-                        var fechaActual = new Date();
-                        var anoActual = fechaActual.getFullYear();
-                        var anoNacimiento = 1999;
-                        var edad = anoActual - anoNacimiento;
-                        document.getElementById("age").innerHTML = edad + " years";
-                      </script>
+                      <div class="col-sm-4"><strong class="text-uppercase">Country:</strong></div>
+                      <div id="country" class="col-sm-8">
+                        Colombia
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" style="vertical-align: middle; margin-left: 8px; padding-bottom: 3px">
+                          <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4v-3H1v3Z" fill="#b92932"></path>
+                          <path fill="#0f2c83" d="M1 15H31V22H1z"></path>
+                          <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#f8d047"></path>
+                          <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+                          <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                        </svg>
+                      </div>                      
                     </div>
                     <div class="row mt-3">
                       <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
@@ -337,7 +346,7 @@
                         <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
                       </div>
                     </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">DBM</span>
+                    <div class="progress-container progress-primary"><span class="progress-badge">DBML</span>
                       <div class="progress">
                         <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
                       </div>
@@ -457,81 +466,6 @@
           </div>
         </div>
         <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-        
-        <!-- ************************************************* CAROUSEL CON PANTALLAZOS DE LOS PROYECTOS ******************************************************** -->
-        <!-- <div class="container">
-          <div class="row mt-5">
-            <div class="col-md-6 ml-auto mr-auto mt-5">
-              <div class="h1 text-center mb-4 title">Screenshots Projects</div>
-            </div>
-          </div>
-          <div id="carouselExampleIndicators" class="carousel slide row justify-content-center" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>              
-            </ol>
-            <div class="carousel-inner col-10">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="images/projects/1.jpg" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/2.jpg" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/3.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/4.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/5.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/6.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/7.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/8.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/9.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/10.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/11.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/12.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/13.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/14.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/15.jpg" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/projects/16.jpg" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div> -->
-         <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
         <!-- *****************************************************EXPERIENCIA LABORAL******************************************************************************** -->
         <div class="section" id="experience">
@@ -548,7 +482,7 @@
                 <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                   <div class="card-body">
                     <div class="h5">Architect & Full-Stack Developer</div>
-                    <p>Backend and Frontend Development (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script), Architecture Design (AWS), Containerization, Microservices, Microfrontends, etc.</p>
+                    <p>Backend and Frontend, Microservices and Microfrontends Development (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script), Architecture Design (AWS), Containerization.</p>
                   </div>
                 </div>
               </div>
@@ -653,7 +587,7 @@
 
         <!-- *****************************************************************FORMULARIO DE CONTACTO******************************************************************** -->
         <div class="section" id="contact">
-          <div class="cc-contact-information" style="background-image: url('images/staticmap.png');">
+          <div class="cc-contact-information" style="background-image: url('images/fondo-nature.png');">
             <div class="container">
               <div class="cc-contact">
                 <div class="row">
@@ -737,12 +671,10 @@
     <footer class="footer">
       <div class="container text-center">
         <!-- <a class="cc-facebook btn btn-link" href="https://www.facebook.com/profile.php?id=100044845542728"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a> -->
-        <a class="cc-twitter btn btn-link " href="https://github.com/AlejoGomez1702"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
-        <a class="cc-google-plus btn btn-link" href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+        <a class="cc-twitter btn btn-link " href="https://github.com/AlejoGomez1702" target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
+        <a class="cc-google-plus btn btn-link" href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
       </div>
-      <div class="h3 title text-center">Luis Alejandro Gómez Castaño</div>
-      <div class="h4 title text-center">Architect & Full-Stack Developer</div>
-      <div class="text-center text-muted" style="display: none;">
+      <div class="text-center text-muted">
         <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
       </div>
     </footer>

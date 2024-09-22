@@ -41,3 +41,19 @@ $('a.smooth-scroll')
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const text = "Software Architect & Full-Stack Developer";
+  const target = document.getElementById("animated-text");
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      target.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 100); // Typing speed
+    }
+  }
+
+  type();
+});
