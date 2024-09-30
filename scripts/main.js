@@ -43,9 +43,14 @@ $('a.smooth-scroll')
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-  const text = "Software Architect & Full-Stack Developer";
+  let text = "Software Architect & Full-Stack Developer";
   const target = document.getElementById("animated-text");
   let index = 0;
+
+  // Check if the device is mobile
+  if (window.innerWidth <= 576) {
+    text = "Software Architect &\nFull-Stack Developer";
+  }
 
   function type() {
     if (index < text.length) {

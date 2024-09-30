@@ -7243,6 +7243,12 @@ Created using IcoMoon - icomoon.io
   }
 }
 
+@media (max-width: 576px) {
+  .animated-text {
+    font-size: 1.5em; /* Smaller font size for mobile */
+  }
+}
+
 /* Footer */
 /* Social button style */
 .cc-facebook:hover i {
