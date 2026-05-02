@@ -70,6 +70,7 @@ const T = {
     'contact.em_l':     'Email',
 
     'footer.rights': '© 2024 Alejandro Gómez. Todos los derechos reservados.',
+    'meta.title':    'Alejandro Gómez | Arquitecto de Software',
   },
 
   en: {
@@ -142,6 +143,7 @@ const T = {
     'contact.em_l':     'Email',
 
     'footer.rights': '© 2024 Alejandro Gómez. All rights reserved.',
+    'meta.title':    'Alejandro Gómez | Software Architect',
   },
 };
 
@@ -165,6 +167,7 @@ function applyLang(l) {
   });
 
   document.getElementById('lang-toggle').textContent = l === 'es' ? 'EN' : 'ES';
+  document.title = T[l]['meta.title'];
   startTypewriter(l);
 }
 
@@ -185,9 +188,24 @@ function startTypewriter(l) {
   tick();
 }
 
+// ── Scroll Reveal (native Intersection Observer, replaces AOS) ───────────────
+function initScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el    = entry.target;
+      const delay = parseInt(el.dataset.aosDelay) || 0;
+      setTimeout(() => el.classList.add('aos-animate'), delay);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  AOS.init({ once: true });
+  initScrollReveal();
   applyLang(lang);
 
   document.getElementById('lang-toggle').addEventListener('click', () => {

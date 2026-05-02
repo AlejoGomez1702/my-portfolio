@@ -5,6 +5,17 @@ body { font-family: 'Montserrat', sans-serif; }
 /* Offset anchor targets so fixed navbar doesn't cover them */
 section[id] { scroll-margin-top: 4rem; }
 
+/* ── Scroll Reveal (native, replaces AOS) ─────────────────────────────── */
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+[data-aos="fade-up"]    { transform: translateY(22px); }
+[data-aos="fade-right"] { transform: translateX(-22px); }
+[data-aos="fade-left"]  { transform: translateX(22px); }
+[data-aos="zoom-in"]    { transform: scale(0.95); }
+[data-aos].aos-animate  { opacity: 1; transform: none; }
+
 /* ── Navbar ───────────────────────────────────────────────────────────── */
 #main-nav {
   transition: background-color 0.35s ease, box-shadow 0.35s ease;
@@ -37,9 +48,9 @@ section[id] { scroll-margin-top: 4rem; }
 .profile-ring::before {
   content: '';
   position: absolute;
-  inset: -10px;
+  inset: -12px;
   border-radius: 50%;
-  border: 3px solid #16a34a;
+  border: 2.5px solid #16a34a;
   animation: pulsate 2s ease-out infinite;
 }
 @keyframes pulsate {
