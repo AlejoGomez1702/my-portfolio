@@ -1,15 +1,198 @@
+// ── Translations ─────────────────────────────────────────────────────────────
+const T = {
+  es: {
+    'nav.about':      'Sobre mí',
+    'nav.skills':     'Habilidades',
+    'nav.portfolio':  'Portafolio',
+    'nav.experience': 'Experiencia',
+    'nav.contact':    'Contacto',
+
+    'hero.download':          'Descargar CV',
+    'hero.typewriter':        'Arquitecto de Software & Desarrollador Full-Stack',
+    'hero.typewriter_mobile': 'Arquitecto de Software &\nDesarrollador Full-Stack',
+
+    'about.title':    'Sobre Mí',
+    'about.who':      'Quién Soy',
+    'about.bio':      'Soy un Arquitecto de Software y Desarrollador Full-Stack con más de 4 años de experiencia liderando equipos y diseñando soluciones tecnológicas mantenibles, escalables, resilientes y eficientes. Mi experiencia radica en el desarrollo de software de alta calidad, la implementación de prácticas CI/CD, la optimización de entornos cloud y la adopción de metodologías ágiles como Scrum. Me enfoco en entregar productos que se alineen con las necesidades del cliente y apoyen el crecimiento del negocio.',
+    'about.info':     'Información Básica',
+    'about.fn_l':     'Nombre',
+    'about.co_l':     'País',
+    'about.co_v':     'Colombia',
+    'about.em_l':     'Email',
+    'about.ph_l':     'Teléfono',
+    'about.la_l':     'Idiomas',
+    'about.la_v':     'Español, Inglés (nivel intermedio)',
+
+    'skills.title': 'Habilidades Profesionales',
+    'skills.fe':    'Frontend',
+    'skills.be':    'Backend',
+    'skills.db':    'Bases de Datos',
+    'skills.cloud': 'Cloud',
+    'skills.tools': 'Herramientas',
+    'skills.arch':  'Arquitectura',
+
+    'portfolio.title':    'Mis Proyectos',
+    'proj.sisinpos.sub':  'Sistema Web',
+    'proj.contratos.sub': 'Generador de Contratos',
+    'proj.inmob.sub':     'Página Web',
+    'proj.chalo.sub':     'App de Delivery',
+    'proj.emp.sub':       'Universidad Autónoma de Manizales',
+    'proj.fuel.sub':      'Alcaldía de Aguadas, Caldas',
+    'proj.visit':         'Ver sitio',
+
+    'exp.title':  'Experiencia Laboral',
+    'exp.1.date': 'Mayo 2021 – Presente',
+    'exp.1.role': 'Arquitecto & Desarrollador Full-Stack',
+    'exp.1.desc': 'Desarrollo Backend y Frontend, Microservicios y Microfrontends (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script). Diseño de arquitecturas (AWS), contenerización.',
+    'exp.2.date': 'Junio 2020 – Noviembre 2020',
+    'exp.2.role': 'Desarrollador Full-Stack',
+    'exp.2.desc': 'Desarrollo Backend y Frontend (Ionic, Firebase, HTML, CSS3, JS, WordPress).',
+    'exp.3.date': 'Febrero 2020 – Mayo 2020',
+    'exp.3.role': 'Desarrollador Full-Stack',
+    'exp.3.desc': 'Desarrollo del Sistema PQRS (Laravel, MySQL, Angular).',
+
+    'edu.title':      'Educación',
+    'edu.1.degree':   'Ingeniero de Sistemas',
+    'edu.1.duration': '5 Años',
+    'edu.2.degree':   'Técnico Profesional en Soporte y Operación de Sistemas Informáticos',
+    'edu.2.duration': '2 Años',
+    'edu.3.degree':   'Bachiller Técnico',
+    'edu.3.duration': '6 Años',
+
+    'contact.title':    'Contáctame',
+    'contact.subtitle': 'No dudes en escribirme.',
+    'contact.name_ph':  'Tu nombre',
+    'contact.sub_ph':   'Asunto',
+    'contact.email_ph': 'Tu correo',
+    'contact.msg_ph':   'Tu mensaje',
+    'contact.send':     'Enviar mensaje',
+    'contact.ph_l':     'Teléfono',
+    'contact.em_l':     'Email',
+
+    'footer.rights': '© 2024 Alejandro Gómez. Todos los derechos reservados.',
+  },
+
+  en: {
+    'nav.about':      'About',
+    'nav.skills':     'Skills',
+    'nav.portfolio':  'Portfolio',
+    'nav.experience': 'Experience',
+    'nav.contact':    'Contact',
+
+    'hero.download':          'Download CV',
+    'hero.typewriter':        'Software Architect & Full-Stack Developer',
+    'hero.typewriter_mobile': 'Software Architect &\nFull-Stack Developer',
+
+    'about.title':    'About Me',
+    'about.who':      'Who I Am',
+    'about.bio':      'I am a Software Architect and Full-Stack Developer with over 4 years of experience leading teams and designing maintainable, scalable, resilient, and efficient technological solutions. My expertise lies in developing high-quality software, implementing CI/CD practices, optimizing cloud environments, and adopting agile methodologies such as Scrum. I focus on delivering products that align with client needs and support business growth.',
+    'about.info':     'Basic Information',
+    'about.fn_l':     'Full Name',
+    'about.co_l':     'Country',
+    'about.co_v':     'Colombia',
+    'about.em_l':     'Email',
+    'about.ph_l':     'Phone',
+    'about.la_l':     'Languages',
+    'about.la_v':     'Spanish, English (intermediate)',
+
+    'skills.title': 'Professional Skills',
+    'skills.fe':    'Frontend',
+    'skills.be':    'Backend',
+    'skills.db':    'Databases',
+    'skills.cloud': 'Cloud',
+    'skills.tools': 'Tools',
+    'skills.arch':  'Architecture',
+
+    'portfolio.title':    'My Creations',
+    'proj.sisinpos.sub':  'Web System',
+    'proj.contratos.sub': 'Contract Generator',
+    'proj.inmob.sub':     'Web Page',
+    'proj.chalo.sub':     'Delivery App',
+    'proj.emp.sub':       'Autonomous University of Manizales',
+    'proj.fuel.sub':      'Mayoralty of Aguadas, Caldas',
+    'proj.visit':         'Visit site',
+
+    'exp.title':  'Work Experience',
+    'exp.1.date': 'May 2021 – Present',
+    'exp.1.role': 'Architect & Full-Stack Developer',
+    'exp.1.desc': 'Backend and Frontend, Microservices and Microfrontends development (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script). Architecture design (AWS), containerization.',
+    'exp.2.date': 'June 2020 – November 2020',
+    'exp.2.role': 'Full-Stack Developer',
+    'exp.2.desc': 'Backend and Frontend development (Ionic, Firebase, HTML, CSS3, JS, WordPress).',
+    'exp.3.date': 'February 2020 – May 2020',
+    'exp.3.role': 'Full-Stack Developer',
+    'exp.3.desc': 'PQRS System development (Laravel, MySQL, Angular).',
+
+    'edu.title':      'Education',
+    'edu.1.degree':   'Systems Engineer',
+    'edu.1.duration': '5 Years',
+    'edu.2.degree':   'Professional Technician in Support and Operation of Computer Systems',
+    'edu.2.duration': '2 Years',
+    'edu.3.degree':   'Technical Graduate',
+    'edu.3.duration': '6 Years',
+
+    'contact.title':    'Contact Me',
+    'contact.subtitle': 'Feel free to get in touch with me.',
+    'contact.name_ph':  'Your name',
+    'contact.sub_ph':   'Subject',
+    'contact.email_ph': 'Your email',
+    'contact.msg_ph':   'Your message',
+    'contact.send':     'Send Message',
+    'contact.ph_l':     'Phone',
+    'contact.em_l':     'Email',
+
+    'footer.rights': '© 2024 Alejandro Gómez. All rights reserved.',
+  },
+};
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let lang = localStorage.getItem('portfolio-lang') || 'es';
+let typewriterTimeout = null;
+
+// ── i18n ──────────────────────────────────────────────────────────────────────
+function applyLang(l) {
+  lang = l;
+  localStorage.setItem('portfolio-lang', l);
+  document.documentElement.lang = l;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = T[l][el.dataset.i18n];
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const v = T[l][el.dataset.i18nPh];
+    if (v !== undefined) el.placeholder = v;
+  });
+
+  document.getElementById('lang-toggle').textContent = l === 'es' ? 'EN' : 'ES';
+  startTypewriter(l);
+}
+
+// ── Typewriter ────────────────────────────────────────────────────────────────
+function startTypewriter(l) {
+  if (typewriterTimeout) clearTimeout(typewriterTimeout);
+  const el = document.getElementById('animated-text');
+  el.textContent = '';
+  const key = window.innerWidth <= 576 ? 'hero.typewriter_mobile' : 'hero.typewriter';
+  const text = T[l][key];
+  let i = 0;
+  function tick() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i++);
+      typewriterTimeout = setTimeout(tick, 100);
+    }
+  }
+  tick();
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({ once: true });
+  applyLang(lang);
 
-  // Typewriter
-  const text = window.innerWidth <= 576
-    ? 'Software Architect &\nFull-Stack Developer'
-    : 'Software Architect & Full-Stack Developer';
-  const target = document.getElementById('animated-text');
-  let i = 0;
-  (function type() {
-    if (i < text.length) { target.textContent += text.charAt(i++); setTimeout(type, 100); }
-  })();
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    applyLang(lang === 'es' ? 'en' : 'es');
+  });
 
   // Navbar scroll: transparent → solid
   const nav = document.getElementById('main-nav');
@@ -17,14 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mobile menu toggle
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.getElementById('nav-menu').classList.toggle('open');
+  // Mobile menu — hamburger ↔ ✕
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu    = document.getElementById('nav-menu');
+  const iconHam    = document.getElementById('icon-ham');
+  const iconX      = document.getElementById('icon-x');
+
+  menuToggle.addEventListener('click', () => {
+    const open = navMenu.classList.toggle('open');
+    iconHam.classList.toggle('hidden', open);
+    iconX.classList.toggle('hidden', !open);
   });
 
-  document.querySelectorAll('#nav-menu a').forEach(a =>
-    a.addEventListener('click', () =>
-      document.getElementById('nav-menu').classList.remove('open')
-    )
+  navMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      iconHam.classList.remove('hidden');
+      iconX.classList.add('hidden');
+    })
   );
 });

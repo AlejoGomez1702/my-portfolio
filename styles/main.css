@@ -2,6 +2,9 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Montserrat', sans-serif; }
 
+/* Offset anchor targets so fixed navbar doesn't cover them */
+section[id] { scroll-margin-top: 4rem; }
+
 /* ── Navbar ───────────────────────────────────────────────────────────── */
 #main-nav {
   transition: background-color 0.35s ease, box-shadow 0.35s ease;
@@ -20,6 +23,10 @@ body { font-family: 'Montserrat', sans-serif; }
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+/* background-attachment: fixed breaks on iOS Safari */
+@media (max-width: 1023px) {
+  .hero-bg { background-attachment: scroll; }
 }
 
 /* Profile image pulse ring */
@@ -64,10 +71,8 @@ body { font-family: 'Montserrat', sans-serif; }
   transform: scaleX(1);
 }
 
-/* ── Timeline connector line ──────────────────────────────────────────── */
-.timeline-item {
-  position: relative;
-}
+/* ── Timeline ─────────────────────────────────────────────────────────── */
+.timeline-item { position: relative; }
 .timeline-item:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -76,7 +81,10 @@ body { font-family: 'Montserrat', sans-serif; }
   bottom: -24px;
   width: 2px;
   background-color: #bbf7d0;
+  z-index: 0;
 }
+/* Ensure cards render above connector */
+.timeline-item > div:last-child { position: relative; z-index: 1; }
 
 /* ── Contact section background ──────────────────────────────────────── */
 .contact-bg {
@@ -94,20 +102,23 @@ body { font-family: 'Montserrat', sans-serif; }
     left: 0;
     right: 0;
     background: #0f172a;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
     flex-direction: column;
-    gap: 0.25rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   }
-  #nav-menu.open {
-    display: flex;
+  #nav-menu.open { display: flex; }
+  #nav-menu li a {
+    padding: 0.625rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: block;
   }
+  #nav-menu li:last-child a { border-bottom: none; }
 }
 
-/* ── Footer ───────────────────────────────────────────────────────────── */
+/* ── Footer icons ─────────────────────────────────────────────────────── */
 .footer-icon {
   transition: color 0.2s ease, transform 0.2s ease;
 }
-.footer-icon:hover {
-  transform: translateY(-3px);
-}
+.footer-icon:hover { transform: translateY(-3px); }
