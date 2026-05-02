@@ -1,688 +1,588 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="./images/favicon/favicon-pc.png"/>
     <title>Alejandro Gómez</title>
-    <meta name="description" content="Alejandro Gómez Full-Stack Developer"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/aos.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="Alejandro Gómez — Software Architect & Full-Stack Developer"/>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: { DEFAULT: '#16a34a', dark: '#15803d', light: '#dcfce7' }
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Custom CSS -->
     <link href="styles/main.css" rel="stylesheet">
   </head>
-  <body id="top">
-    <header>
-      <div class="profile-page sidebar-collapse">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
-          <div class="container">
-            <div class="navbar-translate">
-              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <div style="margin-left: 15px; margin-top: 10px;" class="back-menu">
-                <i class="fa fa-chevron-right fa-2x"></i>
-              </div>
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+
+  <body class="bg-white text-slate-800 antialiased">
+
+    <!-- ── Navbar ───────────────────────────────────────────────────────── -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50">
+      <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
+        <a href="#top" class="text-white font-bold text-xl tracking-tight">AG</a>
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <!-- Nav links -->
+        <ul id="nav-menu" class="md:flex gap-8">
+          <li><a href="#about"      class="text-white/80 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors py-2 block">About</a></li>
+          <li><a href="#skills"     class="text-white/80 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors py-2 block">Skills</a></li>
+          <li><a href="#portfolio"  class="text-white/80 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors py-2 block">Portfolio</a></li>
+          <li><a href="#experience" class="text-white/80 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors py-2 block">Experience</a></li>
+          <li><a href="#contact"    class="text-white/80 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors py-2 block">Contact</a></li>
+        </ul>
       </div>
-    </header>
-    <div class="page-content">
-      <div>
-        <!--*************************************************** Foto, Boton hoja de vida, Botones redes sociales ***************************************************-->
-        <div class="profile-page">
-          <div class="wrapper">
-            <div class="page-header page-header-small" filter-color="green">
-              <div class="page-header-image" data-parallax="true" style="background-image: url('images/background.jpg');"></div>
-              <div class="container">
-                <div class="content-center">
-                  <div class="h1 title">Alejandro Gómez</div>
-                  <div class="cc-profile-image">
-                    <a href="#">
-                      <img src="images/profile.jpg" alt="Image"/>
-                    </a>
-                  </div>                  
-                  <p id="animated-text" class="h4 text-white"></p>
-                  <!-- <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a> -->
-                  <a class="btn btn-primary" href="docs/Alejandro Gómez C.V (30-09-2024).pdf" download="CV Alejandro Gomez" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
-                </div>
-              </div>
-              <div class="section">
-                <div class="container">
-                  <div class="button-container">
-                    <!-- <a class="btn btn-default btn-round btn-lg btn-icon" target="_blank" href="https://www.facebook.com/profile.php?id=100044845542728" rel="tooltip" title="Follow me on Facebook"><i class="fa fa-facebook"></i></a> -->
-                    <a class="btn btn-default btn-round btn-lg btn-icon" target="_blank" href="https://github.com/AlejoGomez1702" rel="tooltip" title="Follow me on Github"><i class="fa fa-github"></i></a>
-                    <a class="btn btn-default btn-round btn-lg btn-icon" target="_blank" href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" rel="tooltip" title="Follow me on Linkedin"><i class="fa fa-linkedin"></i></a>
-                    <!-- <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    </nav>
+
+    <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+    <section id="top" class="hero-bg min-h-screen flex items-center justify-center text-center px-6">
+      <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="800">
+        <!-- Profile photo -->
+        <div class="profile-ring mx-auto mb-8" style="width:fit-content">
+          <img src="images/profile.jpg" alt="Alejandro Gómez"
+               class="w-36 h-36 rounded-full border-4 border-brand object-cover shadow-2xl">
         </div>
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- *****************************************************información acerca de, información básica ********************************************************-->
-        <div class="section" id="about">
-          <div class="container">
-            <div class="card" data-aos="fade-up" data-aos-offset="10">
-              <div class="row">
-                <div class="col-lg-6 col-md-12">
-                  <div class="card-body">
-                    <div class="h4 mt-0 title">
-                      About Me 
-                      <i class="fa fa-smile-o"></i>
-                    </div>
-                    <p>
-                      I am a Software Architect and Full-Stack Developer with over 4 years of experience leading teams and 
-                      designing maintainable, scalable, resilient, and efficient technological solutions. My expertise 
-                      lies in developing high-quality software, implementing CI/CD practices, optimizing cloud environments, 
-                      and adopting agile methodologies such as Scrum. I focus on delivering products that align with client 
-                      needs and support business growth.
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                  <div class="card-body">
-                    <div class="h4 mt-0 title">Basic Information</div>
-                    <div class="row">
-                      <div class="col-sm-4"><strong class="text-uppercase">Full Name:</strong></div>
-                      <div class="col-sm-8">Luis Alejandro Gómez Castaño</div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">Country:</strong></div>
-                      <div id="country" class="col-sm-8">
-                        Colombia
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" style="vertical-align: middle; margin-left: 8px; padding-bottom: 3px">
-                          <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4v-3H1v3Z" fill="#b92932"></path>
-                          <path fill="#0f2c83" d="M1 15H31V22H1z"></path>
-                          <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#f8d047"></path>
-                          <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
-                          <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
-                        </svg>
-                      </div>                      
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-                      <div class="col-sm-8">alejandrogomez2339@gmail.com</div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
-                      <div class="col-sm-8">+57 3217816922</div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">Languages:</strong></div>
-                      <div class="col-sm-8">Spanish, English(intermediate level)</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h1 class="text-white text-4xl md:text-5xl font-bold mb-3 tracking-tight">Alejandro Gómez</h1>
+        <p id="animated-text" class="text-green-300 text-lg md:text-xl font-mono mb-10"></p>
+        <!-- CTA buttons -->
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="docs/Alejandro Gómez C.V (30-09-2024).pdf" download="CV_Alejandro_Gomez"
+             class="bg-brand hover:bg-brand-dark text-white px-7 py-3 rounded-full font-semibold transition-colors shadow-lg">
+            <i class="fa-solid fa-download mr-2"></i>Download CV
+          </a>
+          <a href="https://github.com/AlejoGomez1702" target="_blank"
+             class="border border-white/40 text-white px-5 py-3 rounded-full hover:bg-white/10 transition-colors">
+            <i class="fa-brands fa-github text-xl"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" target="_blank"
+             class="border border-white/40 text-white px-5 py-3 rounded-full hover:bg-white/10 transition-colors">
+            <i class="fa-brands fa-linkedin text-xl"></i>
+          </a>
         </div>
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- **************************************LENGUAJES, HERRAMIENTAS Y FRAMEWORKS QUE DOMINO*********************************************************************** -->
-        <div class="section" id="skill">
-          <div class="container">
-            <div class="h1 text-center mb-4 title">Professional Skills</div>
-            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h3>Frontend</h3>
-                    <div class="progress-container progress-primary">
-                      <span class="progress-badge">Angular</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div><span class="progress-value">85%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Ionic</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Tailwind</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Vue JS</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div><span class="progress-value">65%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">ReactJs</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Figma</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <h3>Backend</h3>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Express</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">NestJS</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div><span class="progress-value">85%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Quarkus</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Laravel</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Eloquent, TypeORM y Prisma</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Codeigniter</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Spring</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Spring Boot</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div><span class="progress-value">65%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">                  
-                  <div class="col-md-6">
-                    <h3>Databases</h3>
-                    <div class="progress-container progress-primary"><span class="progress-badge">MongoDB</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">SQLite</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">PostgreSQL</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">MySQL</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">MariaDB</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Redis</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">DynamoDB</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Oracle</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;"></div><span class="progress-value">55%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <h3>Cloud</h3>
-                    <div class="progress-container progress-primary"><span class="progress-badge">AWS</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Firebase</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div><span class="progress-value">65%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Google Apps Script</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">GCP</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div><span class="progress-value">45%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <h3>Tools</h3>
-                    <div class="progress-container progress-primary"><span class="progress-badge">OAS</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">GIT & GITHUB</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div><span class="progress-value">85%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">GitHub Actions</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Docker</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Websockets</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Nginx</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <h3>More</h3>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Diseño de Arquitecturas en AWS</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Database Design</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Microservicios</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Microfrontends</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Containers</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">DBML</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                      </div>
-                    </div>
-                    <div class="progress-container progress-primary"><span class="progress-badge">Orquestacion de contenedores</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div><span class="progress-value">65%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>        
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- ************************************************PORTAFOLIO CON SISTEMAS DESARROLLADOS************************************************************************** -->
-        <div class="section" id="portfolio">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
-                <div class="h1 text-center mb-4 title">My Creations</div>
-              </div>
-            </div>
-            <div class="tab-content gallery mt-5">
-              <div class="tab-pane active" id="ionic">
-                <div class="ml-auto mr-auto">
-                  <div class="row" >
-
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">sisinpos.com</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Web System</h6>
-                          <p class="card-text">Technologies used: Angular, Node, Express, MongoDB</p>
-                          <a href="https://sisinpos.com/" target="_blank" class="card-link">Go To Website</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">contratos-vista.web.app</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Contract Generator System</h6>
-                          <p class="card-text">Technologies used: Angular, Docx, Pdfmake, Firebase</p>
-                          <a href="https://contratos-vista.web.app/" target="_blank" class="card-link">Go To Website</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">vistainmobiliariasas.co</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Web Page</h6>
-                          <p class="card-text">Technologies used: Bootstrap</p>
-                          <a href="https://vistainmobiliariasas.co/" target="_blank" class="card-link">Go To Website</a>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">La Perrada de Chalo</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Delivery App</h6>
-                          <p class="card-text">
-                            Technologies used: Ionic, Angular and Firebase
-                          </p>
-                          <a href="https://github.com/AlejoGomez1702/aj-restaurant-addresses" target="_blank" class="card-link">GitHub</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Entrepreneurship Unit System</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Autonomous University of Manizales</h6>
-                          <p class="card-text">Technologies used: Laravel, Mysql, Blade</p>
-                          <a href="https://github.com/AlejoGomez1702/frontend-sis-emprendimiento" target="_blank" class="card-link">GitHub</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Fuel Control System -->
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Fuel Control System</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Mayoralty of Aguadas, Caldas</h6>
-                          <p class="card-text">Java SE, SQlite</p>
-                          <a href="https://github.com/AlejoGomez1702/sis-fuel-Aguadas" target="_blank" class="card-link">GitHub</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Pos System -->
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Pos System</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Personal Entrepreneurship</h6>
-                          <p class="card-text">Java SE, SQlite</p>
-                          <a href="https://github.com/AlejoGomez1702/SIP-sis-inv-pos-" target="_blank" class="card-link">GitHub</a>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- *****************************************************EXPERIENCIA LABORAL******************************************************************************** -->
-        <div class="section" id="experience">
-          <div class="container cc-experience">
-            <div class="h1 text-center mb-4 title">Work Experience</div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <p>May 2021 - Present</p>
-                    <div class="h5">Banco Davivienda</div>
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Architect & Full-Stack Developer</div>
-                    <p>Backend and Frontend, Microservices and Microfrontends Development (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script), Architecture Design (AWS), Containerization.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <p>June 2020 - November 2020</p>
-                    <div class="h5">AJ Creative Studios</div>
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Full-Stack Developer</div>
-                    <p>Backend and Frontend Development (Ionic, Firebase, Html, Css3, JS, WordPress)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <p>February 2020 - May 2020</p>
-                    <div class="h5">Alcaldía de Aguadas</div>
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Full-Stack Developer</div>
-                    <p>PQRS System Development. (Laravel, MySql, Angular)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- ***************************************************************ESTUDIOS REALIZADOS************************************************************************+ -->
-        <div class="section">
-          <div class="container cc-education">
-            <div class="h1 text-center mb-4 title">Education</div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-education-header">
-                    <p>2016 - 2020</p>
-                    <div class="h5">Systems Engineer</div>
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Systems Engineer</div>
-                    <p class="h4 category">Universidad Autónoma de Manizales</p>
-                    <p>5 Years</p>
-                    <!-- <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-education-header">
-                    <p>2014 - 2015</p>
-                    <div class="h5">System Technique</div>
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Professional Technician In Support And Operation of Computer Systems</div>
-                    <p class="h4 category">Colegio Integrado Nacional Oriente de Caldas</p>
-                    <p>2 Years</p>
-                    <!-- <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-education-header">
-                    <p>2010 - 2015</p>
-                    <div class="h5">High School</div>
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Technical Graduate</div>
-                    <p class="h4 category">Institución Educativa Pensilvania</p>
-                    <p>6 Years</p>
-                    <!-- <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-        <!-- *****************************************************************FORMULARIO DE CONTACTO******************************************************************** -->
-        <div class="section" id="contact">
-          <div class="cc-contact-information" style="background-image: url('images/fondo-nature.png');">
-            <div class="container">
-              <div class="cc-contact">
-                <div class="row">
-                  <div class="col-md-9">
-                    <div class="card mb-0" data-aos="zoom-in">
-                      <div class="h4 text-center title">Contact Me</div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <form action="https://formspree.io/f/xgeppeer" method="POST">
-                              <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input class="form-control" type="text" name="name" placeholder="Name" required="required"/>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                                    <input class="form-control" type="text" name="Subject" placeholder="Subject" required="required"/>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required"/>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col">
-                                  <button class="btn btn-primary" type="submit">Send</button>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <!-- <p class="mb-0"><strong>Address </strong></p>
-                            <p class="pb-2">140, City Center, New York, U.S.A</p> -->
-                            <p class="mb-0"><strong>Phone</strong></p>
-                            <p class="pb-2">+57 3217816922</p>
-                            <p class="mb-0"><strong>Email</strong></p>
-                            <p>alejandrogomez2339@gmail.com</p>
-                          </div>
-
-                          <div class="section">
-                            <div class="container">
-                              <div class="button-container">
-                                <!-- <a class="btn btn-default btn-round btn-lg btn-icon" target="_blank" href="https://www.facebook.com/profile.php?id=100044845542728" rel="tooltip" title="Follow me on Facebook"><i class="fa fa-facebook"></i></a> -->
-                                <a class="btn btn-default btn-round btn-lg btn-icon" target="_blank" href="https://github.com/AlejoGomez1702" rel="tooltip" title="Follow me on Github"><i class="fa fa-github"></i></a>
-                                <a class="btn btn-default btn-round btn-lg btn-icon" target="_blank" href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" rel="tooltip" title="Follow me on Linkedin"><i class="fa fa-linkedin"></i></a>
-                                <!-- <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a> -->
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
       </div>
-    </div>
-    <footer class="footer">
-      <div class="container text-center">
-        <!-- <a class="cc-facebook btn btn-link" href="https://www.facebook.com/profile.php?id=100044845542728"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a> -->
-        <a class="cc-twitter btn btn-link " href="https://github.com/AlejoGomez1702" target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
-        <a class="cc-google-plus btn btn-link" href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+    </section>
+
+    <!-- ── About ─────────────────────────────────────────────────────────── -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12" data-aos="fade-up">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Bio -->
+          <div class="bg-slate-50 rounded-2xl p-8" data-aos="fade-right">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-sm mb-4">
+              <i class="fa-solid fa-user mr-2"></i>Who I Am
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              I am a Software Architect and Full-Stack Developer with over 4 years of experience leading teams and
+              designing maintainable, scalable, resilient, and efficient technological solutions. My expertise
+              lies in developing high-quality software, implementing CI/CD practices, optimizing cloud environments,
+              and adopting agile methodologies such as Scrum. I focus on delivering products that align with client
+              needs and support business growth.
+            </p>
+          </div>
+          <!-- Info -->
+          <div class="bg-slate-50 rounded-2xl p-8" data-aos="fade-left">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-sm mb-4">
+              <i class="fa-solid fa-circle-info mr-2"></i>Basic Information
+            </h3>
+            <dl class="space-y-3 text-sm">
+              <div class="flex gap-3">
+                <dt class="font-semibold text-slate-500 uppercase w-24 shrink-0">Full Name</dt>
+                <dd class="text-slate-700">Luis Alejandro Gómez Castaño</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold text-slate-500 uppercase w-24 shrink-0">Country</dt>
+                <dd class="text-slate-700 flex items-center gap-2">
+                  Colombia
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32">
+                    <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4v-3H1v3Z" fill="#b92932"/>
+                    <path fill="#0f2c83" d="M1 15H31V22H1z"/>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#f8d047"/>
+                  </svg>
+                </dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold text-slate-500 uppercase w-24 shrink-0">Email</dt>
+                <dd class="text-slate-700">alejandrogomez2339@gmail.com</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold text-slate-500 uppercase w-24 shrink-0">Phone</dt>
+                <dd class="text-slate-700">+57 321 781 6922</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold text-slate-500 uppercase w-24 shrink-0">Languages</dt>
+                <dd class="text-slate-700">Spanish, English (intermediate)</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </div>
-      <div class="text-center text-muted">
-        <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
+    </section>
+
+    <!-- ── Skills ────────────────────────────────────────────────────────── -->
+    <section id="skills" class="py-20 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12" data-aos="fade-up">Professional Skills</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Frontend -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="0">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-xs mb-5">
+              <i class="fa-solid fa-desktop mr-2"></i>Frontend
+            </h3>
+            <div class="space-y-3">
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Angular</span><span class="text-slate-400">85%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:85%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Ionic</span><span class="text-slate-400">70%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:70%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Tailwind</span><span class="text-slate-400">70%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:70%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Vue JS</span><span class="text-slate-400">65%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:65%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">React</span><span class="text-slate-400">50%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:50%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Figma</span><span class="text-slate-400">50%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:50%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="50">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-xs mb-5">
+              <i class="fa-solid fa-server mr-2"></i>Backend
+            </h3>
+            <div class="space-y-3">
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Express</span><span class="text-slate-400">90%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:90%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">NestJS</span><span class="text-slate-400">85%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:85%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Quarkus</span><span class="text-slate-400">80%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:80%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Laravel</span><span class="text-slate-400">80%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:80%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">TypeORM / Prisma</span><span class="text-slate-400">70%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:70%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Spring Boot</span><span class="text-slate-400">65%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:65%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-xs mb-5">
+              <i class="fa-solid fa-database mr-2"></i>Databases
+            </h3>
+            <div class="space-y-3">
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">MongoDB</span><span class="text-slate-400">80%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:80%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">PostgreSQL</span><span class="text-slate-400">75%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:75%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">MySQL / MariaDB</span><span class="text-slate-400">70%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:70%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Redis</span><span class="text-slate-400">70%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:70%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">DynamoDB</span><span class="text-slate-400">70%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:70%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Oracle / SQLite</span><span class="text-slate-400">55%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:55%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="0">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-xs mb-5">
+              <i class="fa-solid fa-cloud mr-2"></i>Cloud
+            </h3>
+            <div class="space-y-3">
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">AWS</span><span class="text-slate-400">75%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:75%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Firebase</span><span class="text-slate-400">65%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:65%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Google Apps Script</span><span class="text-slate-400">60%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:60%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">GCP</span><span class="text-slate-400">45%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:45%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="50">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-xs mb-5">
+              <i class="fa-solid fa-screwdriver-wrench mr-2"></i>Tools
+            </h3>
+            <div class="space-y-3">
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">OAS</span><span class="text-slate-400">90%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:90%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Git & GitHub</span><span class="text-slate-400">85%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:85%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">GitHub Actions</span><span class="text-slate-400">80%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:80%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Docker</span><span class="text-slate-400">75%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:75%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Nginx</span><span class="text-slate-400">60%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:60%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Architecture -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-brand font-bold uppercase tracking-wider text-xs mb-5">
+              <i class="fa-solid fa-diagram-project mr-2"></i>Architecture
+            </h3>
+            <div class="space-y-3">
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">AWS Architecture Design</span><span class="text-slate-400">80%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:80%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Database Design</span><span class="text-slate-400">80%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:80%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Microservices</span><span class="text-slate-400">75%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:75%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Microfrontends</span><span class="text-slate-400">75%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:75%"></div></div>
+              </div>
+              <div data-aos="fade-up" data-aos-offset="10" data-aos-duration="2000">
+                <div class="flex justify-between text-sm mb-1"><span class="font-medium">Container Orchestration</span><span class="text-slate-400">65%</span></div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="progress-bar-fill h-full bg-brand rounded-full" style="width:65%"></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
+
+    <!-- ── Portfolio ──────────────────────────────────────────────────────── -->
+    <section id="portfolio" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12" data-aos="fade-up">My Creations</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div class="bg-slate-50 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+            <h5 class="text-lg font-bold text-slate-900 mb-1">sisinpos.com</h5>
+            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3">Web System</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Angular</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Node</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Express</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">MongoDB</span>
+            </div>
+            <a href="https://sisinpos.com/" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1">
+              Visit site <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
+            <h5 class="text-lg font-bold text-slate-900 mb-1">contratos-vista.web.app</h5>
+            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3">Contract Generator</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Angular</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Firebase</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Pdfmake</span>
+            </div>
+            <a href="https://contratos-vista.web.app/" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1">
+              Visit site <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+            <h5 class="text-lg font-bold text-slate-900 mb-1">vistainmobiliariasas.co</h5>
+            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3">Web Page</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Bootstrap</span>
+            </div>
+            <a href="https://vistainmobiliariasas.co/" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1">
+              Visit site <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+            <h5 class="text-lg font-bold text-slate-900 mb-1">La Perrada de Chalo</h5>
+            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3">Delivery App</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Ionic</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Angular</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Firebase</span>
+            </div>
+            <a href="https://github.com/AlejoGomez1702/aj-restaurant-addresses" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1">
+              GitHub <i class="fa-brands fa-github text-xs"></i>
+            </a>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
+            <h5 class="text-lg font-bold text-slate-900 mb-1">Entrepreneurship Unit System</h5>
+            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3">Autonomous University of Manizales</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Laravel</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">MySQL</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Blade</span>
+            </div>
+            <a href="https://github.com/AlejoGomez1702/frontend-sis-emprendimiento" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1">
+              GitHub <i class="fa-brands fa-github text-xs"></i>
+            </a>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+            <h5 class="text-lg font-bold text-slate-900 mb-1">Fuel Control System</h5>
+            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3">Mayoralty of Aguadas, Caldas</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Java SE</span>
+              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">SQLite</span>
+            </div>
+            <a href="https://github.com/AlejoGomez1702/sis-fuel-Aguadas" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1">
+              GitHub <i class="fa-brands fa-github text-xs"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Experience ─────────────────────────────────────────────────────── -->
+    <section id="experience" class="py-20 bg-slate-50">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12" data-aos="fade-up">Work Experience</h2>
+
+        <div class="timeline-item pl-14 mb-8" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 bg-brand rounded-full flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-briefcase text-white text-sm"></i>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <span class="text-brand text-xs font-semibold uppercase tracking-wide">May 2021 – Present</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">Architect & Full-Stack Developer</h4>
+            <p class="text-slate-500 font-semibold mb-3">Banco Davivienda</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Backend and Frontend, Microservices and Microfrontends development (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script). Architecture design (AWS), containerization.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item pl-14 mb-8" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 bg-brand rounded-full flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-briefcase text-white text-sm"></i>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <span class="text-brand text-xs font-semibold uppercase tracking-wide">June 2020 – November 2020</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">Full-Stack Developer</h4>
+            <p class="text-slate-500 font-semibold mb-3">AJ Creative Studios</p>
+            <p class="text-slate-600 text-sm leading-relaxed">Backend and Frontend development (Ionic, Firebase, HTML, CSS3, JS, WordPress).</p>
+          </div>
+        </div>
+
+        <div class="timeline-item pl-14" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 bg-brand rounded-full flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-briefcase text-white text-sm"></i>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <span class="text-brand text-xs font-semibold uppercase tracking-wide">February 2020 – May 2020</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">Full-Stack Developer</h4>
+            <p class="text-slate-500 font-semibold mb-3">Alcaldía de Aguadas</p>
+            <p class="text-slate-600 text-sm leading-relaxed">PQRS System development (Laravel, MySQL, Angular).</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Education ──────────────────────────────────────────────────────── -->
+    <section id="education" class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-slate-900 text-center mb-12" data-aos="fade-up">Education</h2>
+
+        <div class="timeline-item pl-14 mb-8" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-graduation-cap text-white text-sm"></i>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wide">2016 – 2020</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">Systems Engineer</h4>
+            <p class="text-brand font-semibold text-sm mb-1">Universidad Autónoma de Manizales</p>
+            <p class="text-slate-400 text-xs">5 Years</p>
+          </div>
+        </div>
+
+        <div class="timeline-item pl-14 mb-8" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-graduation-cap text-white text-sm"></i>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wide">2014 – 2015</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">Professional Technician in Support and Operation of Computer Systems</h4>
+            <p class="text-brand font-semibold text-sm mb-1">Colegio Integrado Nacional Oriente de Caldas</p>
+            <p class="text-slate-400 text-xs">2 Years</p>
+          </div>
+        </div>
+
+        <div class="timeline-item pl-14" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-graduation-cap text-white text-sm"></i>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wide">2010 – 2015</span>
+            <h4 class="text-lg font-bold text-slate-900 mt-1">Technical Graduate</h4>
+            <p class="text-brand font-semibold text-sm mb-1">Institución Educativa Pensilvania</p>
+            <p class="text-slate-400 text-xs">6 Years</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Contact ────────────────────────────────────────────────────────── -->
+    <section id="contact" class="py-20 contact-bg relative">
+      <div class="absolute inset-0 bg-slate-900/75"></div>
+      <div class="relative max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-white text-center mb-12" data-aos="fade-up">Contact Me</h2>
+        <div class="grid md:grid-cols-2 gap-8" data-aos="zoom-in">
+
+          <!-- Form -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl">
+            <p class="text-slate-500 text-sm mb-6">Feel free to get in touch with me.</p>
+            <form action="https://formspree.io/f/xgeppeer" method="POST" class="space-y-4">
+              <input type="text" name="name" placeholder="Your name" required
+                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand transition-shadow">
+              <input type="text" name="Subject" placeholder="Subject" required
+                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand transition-shadow">
+              <input type="email" name="_replyto" placeholder="Your email" required
+                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand transition-shadow">
+              <textarea name="message" placeholder="Your message" required rows="4"
+                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand transition-shadow resize-none"></textarea>
+              <button type="submit"
+                class="w-full bg-brand hover:bg-brand-dark text-white py-3 rounded-xl font-semibold transition-colors">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Info -->
+          <div class="flex flex-col justify-center gap-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-brand/20 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-phone text-brand"></i>
+              </div>
+              <div>
+                <p class="text-slate-300 text-xs uppercase tracking-wide mb-0.5">Phone</p>
+                <p class="text-white font-medium">+57 321 781 6922</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-brand/20 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-envelope text-brand"></i>
+              </div>
+              <div>
+                <p class="text-slate-300 text-xs uppercase tracking-wide mb-0.5">Email</p>
+                <p class="text-white font-medium">alejandrogomez2339@gmail.com</p>
+              </div>
+            </div>
+            <div class="flex gap-3 mt-2">
+              <a href="https://github.com/AlejoGomez1702" target="_blank"
+                 class="w-12 h-12 bg-white/10 hover:bg-brand rounded-xl flex items-center justify-center text-white transition-colors footer-icon">
+                <i class="fa-brands fa-github text-xl"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" target="_blank"
+                 class="w-12 h-12 bg-white/10 hover:bg-brand rounded-xl flex items-center justify-center text-white transition-colors footer-icon">
+                <i class="fa-brands fa-linkedin text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+    <footer class="bg-slate-900 py-8 text-center">
+      <div class="flex justify-center gap-4 mb-4">
+        <a href="https://github.com/AlejoGomez1702" target="_blank" class="text-slate-400 hover:text-white transition-colors footer-icon">
+          <i class="fa-brands fa-github text-2xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" target="_blank" class="text-slate-400 hover:text-white transition-colors footer-icon">
+          <i class="fa-brands fa-linkedin text-2xl"></i>
+        </a>
+      </div>
+      <p class="text-slate-500 text-sm">&copy; 2024 Alejandro Gómez. All rights reserved.</p>
     </footer>
-    <script src="js/core/jquery.3.2.1.min.js"></script>
-    <script src="js/core/popper.min.js"></script>
-    <script src="js/core/bootstrap.min.js"></script>
-    <script src="js/now-ui-kit.js?v=1.1.0"></script>
-    <script src="js/aos.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>

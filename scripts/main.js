@@ -1,64 +1,30 @@
-// Add your javascript here
-// Don't forget to add it into respective layouts where this js file is needed
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ once: true });
 
-$(document).ready(function() {
-  AOS.init( {
-    // uncomment below for on-scroll animations to played only once
-    // once: true  
-  }); // initialize animate on scroll library
-});
+  // Typewriter
+  const text = window.innerWidth <= 576
+    ? 'Software Architect &\nFull-Stack Developer'
+    : 'Software Architect & Full-Stack Developer';
+  const target = document.getElementById('animated-text');
+  let i = 0;
+  (function type() {
+    if (i < text.length) { target.textContent += text.charAt(i++); setTimeout(type, 100); }
+  })();
 
-// Smooth scroll for links with hashes
-$('a.smooth-scroll')
-.click(function(event) {
-  // On-page links
-  if (
-    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-    && 
-    location.hostname == this.hostname
-  ) {
-    // Figure out element to scroll to
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    // Does a scroll target exist?
-    if (target.length) {
-      // Only prevent default if animation is actually gonna happen
-      event.preventDefault();
-      $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 1000, function() {
-        // Callback after animation
-        // Must change focus!
-        var $target = $(target);
-        $target.focus();
-        if ($target.is(":focus")) { // Checking if the target was focused
-          return false;
-        } else {
-          $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-          $target.focus(); // Set focus again
-        };
-      });
-    }
-  }
-});
+  // Navbar scroll: transparent → solid
+  const nav = document.getElementById('main-nav');
+  const onScroll = () => nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-document.addEventListener("DOMContentLoaded", function() {
-  let text = "Software Architect & Full-Stack Developer";
-  const target = document.getElementById("animated-text");
-  let index = 0;
+  // Mobile menu toggle
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.toggle('open');
+  });
 
-  // Check if the device is mobile
-  if (window.innerWidth <= 576) {
-    text = "Software Architect &\nFull-Stack Developer";
-  }
-
-  function type() {
-    if (index < text.length) {
-      target.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 100); // Typing speed
-    }
-  }
-
-  type();
+  document.querySelectorAll('#nav-menu a').forEach(a =>
+    a.addEventListener('click', () =>
+      document.getElementById('nav-menu').classList.remove('open')
+    )
+  );
 });
