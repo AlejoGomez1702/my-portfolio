@@ -2,9 +2,9 @@
 const T = {
   es: {
     'nav.about':      'Sobre mí',
-    'nav.skills':     'Habilidades',
-    'nav.portfolio':  'Portafolio',
     'nav.experience': 'Experiencia',
+    'nav.projects':   'Proyectos',
+    'nav.education':  'Educación',
     'nav.contact':    'Contacto',
 
     'hero.download':          'Descargar CV',
@@ -31,7 +31,7 @@ const T = {
     'skills.tools': 'Herramientas',
     'skills.arch':  'Arquitectura',
 
-    'portfolio.title':    'Mis Proyectos',
+    'portfolio.title':    'Proyectos Destacados',
     'proj.sisinpos.sub':  'Sistema Web',
     'proj.contratos.sub': 'Generador de Contratos',
     'proj.inmob.sub':     'Página Web',
@@ -75,9 +75,9 @@ const T = {
 
   en: {
     'nav.about':      'About',
-    'nav.skills':     'Skills',
-    'nav.portfolio':  'Portfolio',
     'nav.experience': 'Experience',
+    'nav.projects':   'Projects',
+    'nav.education':  'Education',
     'nav.contact':    'Contact',
 
     'hero.download':          'Download CV',
@@ -104,7 +104,7 @@ const T = {
     'skills.tools': 'Tools',
     'skills.arch':  'Architecture',
 
-    'portfolio.title':    'My Creations',
+    'portfolio.title':    'Featured Projects',
     'proj.sisinpos.sub':  'Web System',
     'proj.contratos.sub': 'Contract Generator',
     'proj.inmob.sub':     'Web Page',

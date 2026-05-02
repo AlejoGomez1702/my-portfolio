@@ -3,7 +3,7 @@ html { scroll-behavior: smooth; }
 body { font-family: 'Montserrat', sans-serif; }
 
 /* Offset anchor targets so fixed navbar doesn't cover them */
-section[id] { scroll-margin-top: 4rem; }
+section[id] { scroll-margin-top: 5rem; }
 
 /* ── Scroll Reveal (native, replaces AOS) ─────────────────────────────── */
 [data-aos] {
