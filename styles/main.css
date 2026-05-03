@@ -1,6 +1,20 @@
 /* ── Base ─────────────────────────────────────────────────────────────── */
-html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; }
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
 
 /* Offset anchor targets so fixed navbar doesn't cover them */
 section[id] { scroll-margin-top: 5rem; }
@@ -38,6 +52,14 @@ section[id] { scroll-margin-top: 5rem; }
 /* background-attachment: fixed breaks on iOS Safari */
 @media (max-width: 1023px) {
   .hero-bg { background-attachment: scroll; }
+}
+
+@media (max-width: 639px) {
+  #top { min-height: 100dvh; }
+  [data-i18n="hero.badge"] {
+    white-space: normal;
+    line-height: 1.35;
+  }
 }
 
 /* Profile image pulse ring */
