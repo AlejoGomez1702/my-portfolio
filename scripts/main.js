@@ -37,6 +37,9 @@ const T = {
     'about.hl2':      'Liderazgo de equipos ágiles multidisciplinarios',
     'about.hl3':      'Transformación digital en sector bancario',
 
+    'certs.title': 'Certificaciones',
+    'certs.sub':   'Cursos y certificados que complementan mi perfil',
+
     'stack.title':  'Stack Tecnológico',
     'stack.sub':    'Herramientas y tecnologías que aplico en proyectos reales',
     'stack.fe':     'Frontend',
@@ -146,6 +149,9 @@ const T = {
     'about.hl1':      'Microservices architecture on AWS',
     'about.hl2':      'Leadership of multidisciplinary agile teams',
     'about.hl3':      'Digital transformation in the banking sector',
+
+    'certs.title': 'Certifications',
+    'certs.sub':   'Courses and certificates that complement my profile',
 
     'stack.title':  'Tech Stack',
     'stack.sub':    'Tools and technologies I apply in real-world projects',
@@ -356,9 +362,124 @@ function initScrollReveal() {
   document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
 }
 
+// ── Certificates Carousel ─────────────────────────────────────────────────────
+function initCertCarousel() {
+  const wrap = document.querySelector('.cert-carousel-wrap');
+  if (!wrap) return;
+
+  const track   = wrap.querySelector('.cert-track');
+  const cards   = Array.from(track.querySelectorAll('.cert-card'));
+  const prevBtn = wrap.querySelector('.cert-prev');
+  const nextBtn = wrap.querySelector('.cert-next');
+  const dotsEl  = wrap.querySelector('.cert-dots');
+  const N       = cards.length;
+  let current   = 0;
+  let autoTimer = null;
+  let touchX    = 0;
+
+  // Resolve image load/error states
+  cards.forEach(card => {
+    const area = card.querySelector('.cert-img-area');
+    const img  = area && area.querySelector('img');
+    if (!img) return;
+    const onLoad = () => {
+      area.classList.add('img-loaded');
+      card.querySelector('.cert-card-inner').classList.add('is-clickable');
+    };
+    if (img.complete) { if (img.naturalWidth > 0) onLoad(); }
+    else { img.addEventListener('load', onLoad); }
+  });
+
+  function getVisible() {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 640)  return 2;
+    return 1;
+  }
+  function maxIdx() { return Math.max(0, N - getVisible()); }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIdx()));
+    const step = cards[0] ? cards[0].offsetWidth : 0;
+    track.style.transform = `translateX(-${current * step}px)`;
+    dotsEl.querySelectorAll('.cert-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current >= maxIdx();
+  }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    for (let i = 0; i <= maxIdx(); i++) {
+      const d = document.createElement('button');
+      d.className = 'cert-dot' + (i === current ? ' active' : '');
+      d.setAttribute('aria-label', `Certificado ${i + 1}`);
+      d.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function startAuto()  { autoTimer = setInterval(() => goTo(current >= maxIdx() ? 0 : current + 1), 4500); }
+  function stopAuto()   { clearInterval(autoTimer); }
+  function resetAuto()  { stopAuto(); startAuto(); }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+  wrap.addEventListener('mouseenter', stopAuto);
+  wrap.addEventListener('mouseleave', startAuto);
+
+  track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); resetAuto(); }
+  }, { passive: true });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { buildDots(); goTo(Math.min(current, maxIdx())); }, 150);
+  });
+
+  // Lightbox
+  cards.forEach(card => {
+    card.querySelector('.cert-card-inner').addEventListener('click', () => {
+      const inner = card.querySelector('.cert-card-inner');
+      if (!inner.classList.contains('is-clickable')) return;
+      const img = card.querySelector('.cert-img-area img');
+      if (img && img.naturalWidth > 0) openLightbox(img.src, img.alt);
+    });
+  });
+
+  function openLightbox(src, alt) {
+    stopAuto();
+    const overlay = document.createElement('div');
+    overlay.className = 'cert-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.innerHTML = `
+      <div class="cert-lightbox-inner">
+        <button class="cert-lightbox-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <img src="${src}" alt="${alt}">
+      </div>`;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('open')));
+    const close = () => {
+      overlay.classList.remove('open');
+      setTimeout(() => { overlay.remove(); startAuto(); }, 320);
+    };
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    overlay.querySelector('.cert-lightbox-close').addEventListener('click', close);
+    const onKey = e => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onKey); } };
+    document.addEventListener('keydown', onKey);
+  }
+
+  buildDots();
+  goTo(0);
+  startAuto();
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
+  initCertCarousel();
   applyTheme(theme, false);
   applyLang(lang);
 
