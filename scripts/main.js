@@ -7,6 +7,11 @@ const T = {
     'nav.education':  'Educación',
     'nav.contact':    'Contacto',
 
+    'theme.label':     'Tema',
+    'theme.mode.auto': 'Automático',
+    'theme.mode.light':'Claro',
+    'theme.mode.dark': 'Oscuro',
+
     'hero.download':          'Descargar CV',
     'hero.role_primary':      'Arquitecto de Software',
     'hero.role_secondary':    'Amante del código limpio, los equipos que crecen y el software que deja huella',
@@ -89,6 +94,11 @@ const T = {
     'nav.education':  'Education',
     'nav.contact':    'Contact',
 
+    'theme.label':     'Theme',
+    'theme.mode.auto': 'Auto',
+    'theme.mode.light':'Light',
+    'theme.mode.dark': 'Dark',
+
     'hero.download':          'Download CV',
     'hero.role_primary':      'Software Architect',
     'hero.role_secondary':    'Passionate about clean code, growing teams, and software that leaves a mark',
@@ -167,6 +177,86 @@ const T = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let lang = localStorage.getItem('portfolio-lang') || 'es';
+const savedTheme = localStorage.getItem('portfolio-theme');
+let theme = (savedTheme === 'dark' || savedTheme === 'light')
+  ? savedTheme
+  : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+const THEME_TRANSITION_FALLBACK_MS = 420;
+
+function getThemeTransitionMs() {
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue('--theme-transition-ms')
+    .trim();
+  if (!raw) return THEME_TRANSITION_FALLBACK_MS;
+
+  if (raw.endsWith('ms')) {
+    const value = Number.parseFloat(raw);
+    return Number.isFinite(value) ? value : THEME_TRANSITION_FALLBACK_MS;
+  }
+
+  if (raw.endsWith('s')) {
+    const value = Number.parseFloat(raw);
+    return Number.isFinite(value) ? value * 1000 : THEME_TRANSITION_FALLBACK_MS;
+  }
+
+  const value = Number.parseFloat(raw);
+  return Number.isFinite(value) ? value : THEME_TRANSITION_FALLBACK_MS;
+}
+
+function runThemeTransition(updateFn) {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    updateFn();
+    return;
+  }
+
+  const root = document.documentElement;
+  const transitionMs = getThemeTransitionMs();
+  root.classList.add('theme-transitioning');
+  updateFn();
+  window.setTimeout(() => root.classList.remove('theme-transitioning'), transitionMs + 40);
+}
+
+function updateThemeToggleUI() {
+  const toggle = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  if (!toggle || !icon) return;
+
+  const title = lang === 'es'
+    ? (theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro')
+    : (theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+
+  toggle.setAttribute('aria-label', title);
+  toggle.setAttribute('title', title);
+
+  icon.textContent = theme === 'dark' ? '☾' : '☀';
+  toggle.classList.remove('theme-state-dark', 'theme-state-light');
+  toggle.classList.add(theme === 'dark' ? 'theme-state-dark' : 'theme-state-light');
+}
+
+function applyTheme(nextTheme, animate = true) {
+  theme = nextTheme === 'dark' ? 'dark' : 'light';
+
+  if (animate) {
+    runThemeTransition(() => {
+      document.documentElement.setAttribute('data-theme', theme);
+    });
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  localStorage.setItem('portfolio-theme', theme);
+  localStorage.removeItem('portfolio-theme-mode');
+
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  const isDark = theme === 'dark';
+
+  if (metaTheme) {
+    metaTheme.setAttribute('content', isDark ? '#0b1220' : '#15803d');
+  }
+
+  updateThemeToggleUI();
+}
 
 // ── i18n ──────────────────────────────────────────────────────────────────────
 function applyLang(l) {
@@ -185,6 +275,7 @@ function applyLang(l) {
 
   document.getElementById('lang-toggle').textContent = l === 'es' ? 'EN' : 'ES';
   document.title = T[l]['meta.title'];
+  updateThemeToggleUI();
 }
 
 // ── Typewriter ────────────────────────────────────────────────────────────────
@@ -222,11 +313,19 @@ function initScrollReveal() {
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
+  applyTheme(theme, false);
   applyLang(lang);
 
   document.getElementById('lang-toggle').addEventListener('click', () => {
     applyLang(lang === 'es' ? 'en' : 'es');
   });
+
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      applyTheme(theme === 'dark' ? 'light' : 'dark');
+    });
+  }
 
   // Navbar scroll: transparent → solid
   const nav = document.getElementById('main-nav');
@@ -240,17 +339,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const iconHam    = document.getElementById('icon-ham');
   const iconX      = document.getElementById('icon-x');
 
+  const setMenuOpenState = (open) => {
+    navMenu.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    iconHam.classList.toggle('opacity-0', open);
+    iconHam.classList.toggle('scale-75', open);
+    iconHam.classList.toggle('-rotate-90', open);
+    iconX.classList.toggle('opacity-0', !open);
+    iconX.classList.toggle('scale-75', !open);
+    iconX.classList.toggle('rotate-90', !open);
+  };
+
   menuToggle.addEventListener('click', () => {
-    const open = navMenu.classList.toggle('open');
-    iconHam.classList.toggle('hidden', open);
-    iconX.classList.toggle('hidden', !open);
+    const open = !navMenu.classList.contains('open');
+    setMenuOpenState(open);
   });
 
   navMenu.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      iconHam.classList.remove('hidden');
-      iconX.classList.add('hidden');
+      setMenuOpenState(false);
     })
   );
 });
