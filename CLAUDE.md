@@ -16,12 +16,12 @@ Single-page site (`index.html`) with all sections inline. Section IDs (in order)
 
 - `styles/main.css` — Custom CSS only: CSS custom properties for theming, dark-mode Tailwind overrides, navbar scroll, hero gradient, profile ring animation, scroll reveal, progress bars, timeline, certificates carousel + lightbox, contact card glassmorphism, mobile nav drawer, WhatsApp FAB.
 - `scripts/main.js` — Contains the full translations object (`T`), i18n engine, theme toggle, typewriter, native scroll reveal (IntersectionObserver), certificates carousel with lightbox, navbar scroll toggle, and mobile menu toggle.
-- `images/` — profile photos (`perfil-alejo.png`, `perfil-alejo-light.png`, `profile.jpg` used as og:image), hero background, contact section background, `favicon/ag.svg`, `certs/` (certificate JPGs used by the carousel).
+- `images/` — profile photos (`perfil-alejo.png`, `perfil-alejo-light.png`, `profile.jpg` used as og:image), `background.jpg` (hero section background), `fondo-nature.png` (contact section background), `favicon/ag.svg`, `certs/` (certificate JPGs used by the carousel).
 - `docs/` — latest CV PDF linked from the page.
 
 ## Key Dependencies (all via CDN, no npm)
 
-- **Tailwind CSS** — Play CDN (`cdn.tailwindcss.com`); custom config inlined in `<head>` (brand colors, Montserrat font). Custom CSS in `styles/main.css` handles what utilities can't express.
+- **Tailwind CSS** — Play CDN (`cdn.tailwindcss.com`); custom config inlined in `<head>`. Brand palette: `brand.DEFAULT #16a34a`, `brand.dark #15803d`, `brand.light #dcfce7`; font: Montserrat. Custom CSS in `styles/main.css` handles what utilities can't express.
 - **Font Awesome 6.5** — icon library (`cdnjs`).
 - **Devicon v2.16.0** — technology logo icon font (`jsdelivr`); used for tech stack icons in the Experience section chips and the Tech Stack section. Class pattern: `devicon-<tech>-plain colored`. Express and Nginx icons are dark and need the CSS rule `html[data-theme='dark'] .devicon-express-original, .devicon-nginx-original { filter: invert(0.85) brightness(1.8) }` to be visible in dark mode.
 - **Google Fonts** — Montserrat loaded via `fonts.googleapis.com`.

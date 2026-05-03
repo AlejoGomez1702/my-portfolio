@@ -522,10 +522,10 @@ html[data-theme='dark'] .contact-social {
 
 .cert-viewport {
   overflow: hidden;
-  margin: 0 2rem; /* horizontal room for arrows on all breakpoints */
+  margin: 0; /* mobile: arrows hidden, no margin needed */
 }
 @media (min-width: 640px) {
-  .cert-viewport { margin: 0 1.5rem; }
+  .cert-viewport { margin: 0 2.75rem; } /* matches arrow width — no card overlap */
 }
 
 .cert-track {
@@ -536,7 +536,7 @@ html[data-theme='dark'] .contact-social {
 
 /* Card sizing: 1 card + peek on mobile, 2 on tablet, 3 on desktop */
 .cert-card {
-  flex: 0 0 84%;
+  flex: 0 0 90%;
   padding: 0 0.375rem;
   box-sizing: border-box;
   display: flex;
@@ -658,6 +658,13 @@ html[data-theme='dark'] .contact-social {
 .cert-prev { left: 0; }
 .cert-next { right: 0; }
 
+@media (max-width: 639px) {
+  .cert-arrow { display: none; } /* swipe replaces arrows on touch devices */
+}
+@media (min-width: 640px) {
+  .cert-arrow { width: 2.75rem; height: 2.75rem; } /* 44px — comfortable touch target */
+}
+
 /* Dots */
 .cert-dots {
   display: flex;
@@ -673,11 +680,17 @@ html[data-theme='dark'] .contact-social {
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: background 0.25s ease, width 0.25s ease;
+  transition: background 0.25s ease, width 0.25s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 .cert-dot.active {
   background: var(--brand);
   width: 20px;
+}
+/* Sliding-window dot states (JS sets data-dot-state) */
+.cert-dot[data-dot-state="hidden"] { display: none; }
+.cert-dot[data-dot-state="edge"] {
+  transform: scale(0.6);
+  opacity: 0.4;
 }
 
 /* Carousel dark mode */
@@ -817,10 +830,11 @@ html[data-theme='dark'] .cert-dot { background: #334155; }
 }
 
 @media (max-width: 640px) {
-  .cert-lightbox { padding: 3.5rem 0.75rem 1rem; }
+  .cert-lightbox { padding: 3.5rem 1rem 1rem; }
   .cert-lightbox-prev { left: 0.5rem; }
   .cert-lightbox-next { right: 0.5rem; }
   .cert-lightbox-nav  { width: 2.5rem; height: 2.5rem; font-size: 0.875rem; }
+  .cert-lightbox-close { right: 0; } /* prevents clipping off-screen on narrow phones */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -838,6 +852,41 @@ html[data-theme='dark'] .proj-live-badge {
 }
 html[data-theme='dark'] .proj-live-badge .bg-emerald-500 {
   background-color: #34d399 !important;
+}
+
+/* ── Project card titles: URL-like names must wrap at any character ────── */
+#projects h5 { overflow-wrap: anywhere; }
+
+/* ── Sub-300px fixes: About & Projects ───────────────────────────────────
+   Below 300px (Galaxy Fold, older budget phones) some flex/grid layouts
+   become too cramped. These rules tighten spacing and allow wrapping.   */
+@media (max-width: 299px) {
+
+  /* Stats row — reduce gap and cell padding so labels don't overflow */
+  #about .grid-cols-3              { gap: 0.375rem !important; }
+  #about .grid-cols-3 > div       { padding: 0.75rem 0.25rem !important; }
+  /* Remove uppercase + tracking-wide so label text fits in ~70px cells */
+  #about .grid-cols-3 p:last-child {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* About cards — reduce padding from p-6 (24px) to 1rem (16px) */
+  #about .p-6 { padding: 1rem !important; }
+
+  /* Social + CV footer row — wrap the CV button to its own line */
+  #about .border-t.flex           { flex-wrap: wrap !important; }
+  #about .border-t .ml-auto       {
+    margin-left: 0 !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Projects — reduce card content horizontal padding (px-5 → 1rem) */
+  #projects .px-5 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
 /* ── Dark icons (Express, Nginx) need inversion in dark mode ──────────── */

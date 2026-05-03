@@ -403,7 +403,7 @@ function initCertCarousel() {
     current = Math.max(0, Math.min(idx, maxIdx()));
     const step = cards[0] ? cards[0].offsetWidth : 0;
     track.style.transform = `translateX(-${current * step}px)`;
-    dotsEl.querySelectorAll('.cert-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    syncDots();
     if (prevBtn) prevBtn.disabled = current === 0;
     if (nextBtn) nextBtn.disabled = current >= maxIdx();
   }
@@ -412,11 +412,39 @@ function initCertCarousel() {
     dotsEl.innerHTML = '';
     for (let i = 0; i <= maxIdx(); i++) {
       const d = document.createElement('button');
-      d.className = 'cert-dot' + (i === current ? ' active' : '');
+      d.className = 'cert-dot';
       d.setAttribute('aria-label', `Certificado ${i + 1}`);
       d.addEventListener('click', () => { goTo(i); resetAuto(); });
       dotsEl.appendChild(d);
     }
+    syncDots();
+  }
+
+  function syncDots() {
+    const dots = Array.from(dotsEl.querySelectorAll('.cert-dot'));
+    const total = dots.length;
+    const MAX_VISIBLE = 7;
+
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+
+    if (total <= MAX_VISIBLE) {
+      dots.forEach(d => d.removeAttribute('data-dot-state'));
+      return;
+    }
+
+    const half = Math.floor(MAX_VISIBLE / 2);
+    const start = Math.max(0, Math.min(current - half, total - MAX_VISIBLE));
+    const end = start + MAX_VISIBLE - 1;
+
+    dots.forEach((d, i) => {
+      if (i < start || i > end) {
+        d.setAttribute('data-dot-state', 'hidden');
+      } else if ((i === start && start > 0) || (i === end && end < total - 1)) {
+        d.setAttribute('data-dot-state', 'edge');
+      } else {
+        d.removeAttribute('data-dot-state');
+      }
+    });
   }
 
   function startAuto()  { autoTimer = setInterval(() => goTo(current >= maxIdx() ? 0 : current + 1), 8000); }
