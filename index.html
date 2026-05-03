@@ -387,85 +387,177 @@
     </section>
 
     <!-- ── Portfolio ──────────────────────────────────────────────────────── -->
-    <section id="projects" class="py-14 md:py-20 bg-white scroll-mt-16">
+    <section id="projects" class="py-14 md:py-20 bg-slate-50 scroll-mt-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-10 md:mb-12" data-aos="fade-up" data-i18n="portfolio.title">Proyectos Destacados</h2>
+
+        <div class="text-center mb-10 md:mb-12" data-aos="fade-up">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900" data-i18n="portfolio.title">Proyectos Destacados</h2>
+          <p class="text-slate-400 text-sm mt-2" data-i18n="portfolio.sub">Una selección de proyectos propios y académicos</p>
+        </div>
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
 
-          <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
-            <h5 class="text-base sm:text-lg font-bold text-slate-900 mb-1">sisinpos.com</h5>
-            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3" data-i18n="proj.sisinpos.sub">Sistema Web</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Angular</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Node</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Express</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">MongoDB</span>
+          <!-- sisinpos.com -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+            <div class="px-5 sm:px-6 pt-5 pb-4 flex items-start gap-3">
+              <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-cash-register text-brand text-sm"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h5 class="font-bold text-slate-900 text-sm leading-tight">sisinpos.com</h5>
+                <p class="text-[11px] text-brand font-semibold uppercase tracking-wide mt-0.5" data-i18n="proj.sisinpos.sub">Sistema Web</p>
+              </div>
+              <span class="shrink-0 inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 rounded-full px-2 py-0.5 border border-emerald-100 proj-live-badge">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Live
+              </span>
             </div>
-            <a href="https://sisinpos.com/" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1.5">
-              <span data-i18n="proj.visit">Ver sitio</span><i class="fa-solid fa-arrow-right text-xs"></i>
-            </a>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed px-5 sm:px-6 pb-4" data-i18n="proj.sisinpos.desc">Sistema POS para gestión de ventas, inventario y clientes en pequeñas y medianas empresas.</p>
+            <div class="flex flex-wrap gap-1.5 px-5 sm:px-6 pb-4">
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-angular-plain colored text-xs leading-none"></i>Angular</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-nodejs-plain colored text-xs leading-none"></i>Node.js</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-mongodb-plain colored text-xs leading-none"></i>MongoDB</span>
+            </div>
+            <div class="mt-auto px-5 sm:px-6 pb-5 pt-3 border-t border-slate-50">
+              <a href="https://sisinpos.com/" target="_blank" rel="noopener"
+                 class="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <span data-i18n="proj.visit">Ver sitio</span>
+              </a>
+            </div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
-            <h5 class="text-base sm:text-lg font-bold text-slate-900 mb-1">contratos-vista.web.app</h5>
-            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3" data-i18n="proj.contratos.sub">Generador de Contratos</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Angular</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Firebase</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Pdfmake</span>
+          <!-- contratos-vista.web.app -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="50">
+            <div class="px-5 sm:px-6 pt-5 pb-4 flex items-start gap-3">
+              <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-file-contract text-brand text-sm"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h5 class="font-bold text-slate-900 text-sm leading-tight">contratos-vista.web.app</h5>
+                <p class="text-[11px] text-brand font-semibold uppercase tracking-wide mt-0.5" data-i18n="proj.contratos.sub">Generador de Contratos</p>
+              </div>
+              <span class="shrink-0 inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 rounded-full px-2 py-0.5 border border-emerald-100 proj-live-badge">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Live
+              </span>
             </div>
-            <a href="https://contratos-vista.web.app/" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1.5">
-              <span data-i18n="proj.visit">Ver sitio</span><i class="fa-solid fa-arrow-right text-xs"></i>
-            </a>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed px-5 sm:px-6 pb-4" data-i18n="proj.contratos.desc">Generador de contratos en PDF con plantillas personalizables y almacenamiento en la nube.</p>
+            <div class="flex flex-wrap gap-1.5 px-5 sm:px-6 pb-4">
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-angular-plain colored text-xs leading-none"></i>Angular</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-firebase-plain colored text-xs leading-none"></i>Firebase</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="fa-solid fa-file-pdf text-red-400 text-xs leading-none"></i>Pdfmake</span>
+            </div>
+            <div class="mt-auto px-5 sm:px-6 pb-5 pt-3 border-t border-slate-50">
+              <a href="https://contratos-vista.web.app/" target="_blank" rel="noopener"
+                 class="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <span data-i18n="proj.visit">Ver sitio</span>
+              </a>
+            </div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-            <h5 class="text-base sm:text-lg font-bold text-slate-900 mb-1">vistainmobiliariasas.co</h5>
-            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3" data-i18n="proj.inmob.sub">Página Web</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Bootstrap</span>
+          <!-- vistainmobiliariasas.co -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+            <div class="px-5 sm:px-6 pt-5 pb-4 flex items-start gap-3">
+              <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-building text-brand text-sm"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h5 class="font-bold text-slate-900 text-sm leading-tight">vistainmobiliariasas.co</h5>
+                <p class="text-[11px] text-brand font-semibold uppercase tracking-wide mt-0.5" data-i18n="proj.inmob.sub">Página Web</p>
+              </div>
+              <span class="shrink-0 inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 rounded-full px-2 py-0.5 border border-emerald-100 proj-live-badge">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Live
+              </span>
             </div>
-            <a href="https://vistainmobiliariasas.co/" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1.5">
-              <span data-i18n="proj.visit">Ver sitio</span><i class="fa-solid fa-arrow-right text-xs"></i>
-            </a>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed px-5 sm:px-6 pb-4" data-i18n="proj.inmob.desc">Sitio web corporativo para inmobiliaria con catálogo de propiedades y formulario de contacto.</p>
+            <div class="flex flex-wrap gap-1.5 px-5 sm:px-6 pb-4">
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-bootstrap-plain colored text-xs leading-none"></i>Bootstrap</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="fa-brands fa-wordpress text-blue-400 text-xs leading-none"></i>WordPress</span>
+            </div>
+            <div class="mt-auto px-5 sm:px-6 pb-5 pt-3 border-t border-slate-50">
+              <a href="https://vistainmobiliariasas.co/" target="_blank" rel="noopener"
+                 class="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <span data-i18n="proj.visit">Ver sitio</span>
+              </a>
+            </div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
-            <h5 class="text-base sm:text-lg font-bold text-slate-900 mb-1">La Perrada de Chalo</h5>
-            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3" data-i18n="proj.chalo.sub">App de Delivery</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Ionic</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Angular</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Firebase</span>
+          <!-- La Perrada de Chalo -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+            <div class="px-5 sm:px-6 pt-5 pb-4 flex items-start gap-3">
+              <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-motorcycle text-brand text-sm"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h5 class="font-bold text-slate-900 text-sm leading-tight">La Perrada de Chalo</h5>
+                <p class="text-[11px] text-brand font-semibold uppercase tracking-wide mt-0.5" data-i18n="proj.chalo.sub">App de Delivery</p>
+              </div>
             </div>
-            <a href="https://github.com/AlejoGomez1702/aj-restaurant-addresses" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1.5">
-              GitHub<i class="fa-brands fa-github text-sm"></i>
-            </a>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed px-5 sm:px-6 pb-4" data-i18n="proj.chalo.desc">App móvil de delivery para restaurante con gestión de pedidos y geolocalización de direcciones.</p>
+            <div class="flex flex-wrap gap-1.5 px-5 sm:px-6 pb-4">
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-ionic-original colored text-xs leading-none"></i>Ionic</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-angular-plain colored text-xs leading-none"></i>Angular</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-firebase-plain colored text-xs leading-none"></i>Firebase</span>
+            </div>
+            <div class="mt-auto px-5 sm:px-6 pb-5 pt-3 border-t border-slate-50">
+              <a href="https://github.com/AlejoGomez1702/aj-restaurant-addresses" target="_blank" rel="noopener"
+                 class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors">
+                <i class="fa-brands fa-github text-sm"></i>
+                <span data-i18n="proj.code">Ver código</span>
+              </a>
+            </div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
-            <h5 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Entrepreneurship Unit System</h5>
-            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3" data-i18n="proj.emp.sub">Universidad Autónoma de Manizales</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Laravel</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">MySQL</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Blade</span>
+          <!-- Entrepreneurship Unit System -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="50">
+            <div class="px-5 sm:px-6 pt-5 pb-4 flex items-start gap-3">
+              <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-lightbulb text-brand text-sm"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h5 class="font-bold text-slate-900 text-sm leading-tight">Entrepreneurship System</h5>
+                <p class="text-[11px] text-brand font-semibold uppercase tracking-wide mt-0.5" data-i18n="proj.emp.sub">Universidad Autónoma de Manizales</p>
+              </div>
             </div>
-            <a href="https://github.com/AlejoGomez1702/frontend-sis-emprendimiento" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1.5">
-              GitHub<i class="fa-brands fa-github text-sm"></i>
-            </a>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed px-5 sm:px-6 pb-4" data-i18n="proj.emp.desc">Plataforma para la Unidad de Emprendimiento universitaria: gestión de proyectos, mentorías y seguimiento.</p>
+            <div class="flex flex-wrap gap-1.5 px-5 sm:px-6 pb-4">
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-laravel-plain colored text-xs leading-none"></i>Laravel</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-mysql-plain colored text-xs leading-none"></i>MySQL</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="fa-solid fa-code text-slate-400 text-xs leading-none"></i>Blade</span>
+            </div>
+            <div class="mt-auto px-5 sm:px-6 pb-5 pt-3 border-t border-slate-50">
+              <a href="https://github.com/AlejoGomez1702/frontend-sis-emprendimiento" target="_blank" rel="noopener"
+                 class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors">
+                <i class="fa-brands fa-github text-sm"></i>
+                <span data-i18n="proj.code">Ver código</span>
+              </a>
+            </div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-            <h5 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Fuel Control System</h5>
-            <p class="text-xs text-brand font-semibold uppercase tracking-wide mb-3" data-i18n="proj.fuel.sub">Alcaldía de Aguadas, Caldas</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">Java SE</span>
-              <span class="bg-brand-light text-brand text-xs px-2 py-0.5 rounded-full font-medium">SQLite</span>
+          <!-- Fuel Control System -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+            <div class="px-5 sm:px-6 pt-5 pb-4 flex items-start gap-3">
+              <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-gas-pump text-brand text-sm"></i>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h5 class="font-bold text-slate-900 text-sm leading-tight">Fuel Control System</h5>
+                <p class="text-[11px] text-brand font-semibold uppercase tracking-wide mt-0.5" data-i18n="proj.fuel.sub">Alcaldía de Aguadas, Caldas</p>
+              </div>
             </div>
-            <a href="https://github.com/AlejoGomez1702/sis-fuel-Aguadas" target="_blank" class="text-brand hover:text-brand-dark font-semibold text-sm inline-flex items-center gap-1.5">
-              GitHub<i class="fa-brands fa-github text-sm"></i>
-            </a>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed px-5 sm:px-6 pb-4" data-i18n="proj.fuel.desc">Sistema de escritorio para control y registro del consumo de combustible en la flota municipal.</p>
+            <div class="flex flex-wrap gap-1.5 px-5 sm:px-6 pb-4">
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-java-plain colored text-xs leading-none"></i>Java SE</span>
+              <span class="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-md px-2 py-0.5 text-[11px] font-semibold text-slate-500"><i class="devicon-sqlite-plain colored text-xs leading-none"></i>SQLite</span>
+            </div>
+            <div class="mt-auto px-5 sm:px-6 pb-5 pt-3 border-t border-slate-50">
+              <a href="https://github.com/AlejoGomez1702/sis-fuel-Aguadas" target="_blank" rel="noopener"
+                 class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors">
+                <i class="fa-brands fa-github text-sm"></i>
+                <span data-i18n="proj.code">Ver código</span>
+              </a>
+            </div>
           </div>
 
         </div>

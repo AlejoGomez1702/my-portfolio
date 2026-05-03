@@ -316,6 +316,16 @@ section[id] { scroll-margin-top: 5rem; }
   }
 }
 
+/* ── Project "Live" badge — keep emerald tones legible in dark mode ──── */
+html[data-theme='dark'] .proj-live-badge {
+  background-color: rgba(6, 78, 59, 0.45) !important;
+  border-color: rgba(52, 211, 153, 0.30) !important;
+  color: #6ee7b7 !important;
+}
+html[data-theme='dark'] .proj-live-badge .bg-emerald-500 {
+  background-color: #34d399 !important;
+}
+
 /* ── Dark icons (Express, Nginx) need inversion in dark mode ──────────── */
 html[data-theme='dark'] .devicon-express-original,
 html[data-theme='dark'] .devicon-nginx-original {
