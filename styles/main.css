@@ -846,6 +846,12 @@ html[data-theme='dark'] .devicon-nginx-original {
   filter: invert(0.85) brightness(1.8) !important;
 }
 
+/* Angular icon can look washed out in light mode without a forced brand tone */
+html[data-theme='light'] .devicon-angular-plain,
+html[data-theme='light'] .devicon-angular-plain.colored {
+  color: #dd0031 !important;
+}
+
 /* ── Footer icons ─────────────────────────────────────────────────────── */
 .site-footer {
   background: var(--footer-bg);
