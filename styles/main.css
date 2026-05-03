@@ -38,6 +38,13 @@ html {
   --contact-card-shadow: rgba(15, 23, 42, 0.20);
   --contact-card-inner-shine: rgba(255, 255, 255, 0.58);
   --contact-input-shadow: rgba(15, 23, 42, 0.08);
+  --footer-bg: #f8fafc;
+  --footer-border: #e2e8f0;
+  --footer-link: #475569;
+  --footer-link-hover: #0f172a;
+  --footer-copy: #64748b;
+  --footer-pill-bg: rgba(226, 232, 240, 0.65);
+  --footer-pill-border: rgba(148, 163, 184, 0.32);
 }
 html[data-theme='dark'] {
   color-scheme: dark;
@@ -69,6 +76,13 @@ html[data-theme='dark'] {
   --contact-card-shadow: rgba(2, 6, 23, 0.48);
   --contact-card-inner-shine: rgba(148, 163, 184, 0.14);
   --contact-input-shadow: rgba(2, 6, 23, 0.42);
+  --footer-bg: #0a1638;
+  --footer-border: rgba(51, 65, 85, 0.92);
+  --footer-link: #94a3b8;
+  --footer-link-hover: #f8fafc;
+  --footer-copy: #94a3b8;
+  --footer-pill-bg: rgba(30, 41, 59, 0.56);
+  --footer-pill-border: rgba(100, 116, 139, 0.34);
 }
 body {
   margin: 0;
@@ -758,6 +772,42 @@ html[data-theme='dark'] .devicon-nginx-original {
 }
 
 /* ── Footer icons ─────────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+}
+
+.site-footer-link {
+  color: var(--footer-link);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.site-footer-link:hover {
+  color: var(--footer-link-hover);
+}
+
+.site-footer-copy {
+  color: var(--footer-copy);
+}
+
+.site-footer-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--footer-link);
+  background: var(--footer-pill-bg);
+  border: 1px solid var(--footer-pill-border);
+  letter-spacing: 0.02em;
+}
+
+.site-footer-signature-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 9999px;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+}
+
 .footer-icon {
   transition: color 0.2s ease, transform 0.2s ease;
 }

@@ -109,7 +109,8 @@ const T = {
     'contact.ph_l':     'Teléfono',
     'contact.em_l':     'Email',
 
-    'footer.rights': '© 2024 Alejandro Gómez. Todos los derechos reservados.',
+    'footer.signature': 'Disponible para crear productos digitales memorables',
+    'footer.rights':    '© 2026 Alejandro Gómez · Codigo, estrategia y buena energia 🙂',
     'meta.title':    'Alejandro Gómez | Arquitecto de Software',
   },
 
@@ -222,7 +223,8 @@ const T = {
     'contact.ph_l':     'Phone',
     'contact.em_l':     'Email',
 
-    'footer.rights': '© 2024 Alejandro Gómez. All rights reserved.',
+    'footer.signature': 'Available to craft memorable digital products',
+    'footer.rights':    '© 2026 Alejandro Gómez · Code, strategy, and positive energy 🙂',
     'meta.title':    'Alejandro Gómez | Software Architect',
   },
 };
