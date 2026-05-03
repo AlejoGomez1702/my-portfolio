@@ -12,23 +12,48 @@ Open `index.html` directly in a browser. No dev server, no npm, no build command
 
 ## Architecture
 
-Single-page site (`index.html`) with all sections inline: hero, about, skills, portfolio, experience, education, and contact.
+Single-page site (`index.html`) with all sections inline: hero, about, experience, skills, portfolio, education, and contact.
 
-- `styles/main.css` — ~110 lines of custom CSS only (navbar scroll, hero gradient, profile ring, typewriter, progress bar animation, timeline, mobile nav drawer)
-- `scripts/main.js` — ~30 lines of vanilla JS: AOS init, typewriter, navbar scroll toggle, mobile menu toggle
-- `images/` — profile photo, backgrounds, favicon
-- `docs/` — latest CV PDF linked from the page
+- `styles/main.css` — ~366 lines. Custom CSS only: CSS custom properties for theming, dark-mode Tailwind overrides, navbar scroll, hero gradient, profile ring animation, scroll reveal, progress bars, timeline, mobile nav drawer, WhatsApp FAB.
+- `scripts/main.js` — ~384 lines. Contains the full translations object (`T`), i18n engine, theme toggle, typewriter, native scroll reveal (IntersectionObserver), navbar scroll toggle, and mobile menu toggle.
+- `images/` — profile photos (`perfil-alejo.png`, `perfil-alejo-light.png`), hero background, contact section background, favicon variants.
+- `docs/` — latest CV PDF linked from the page.
 
 ## Key Dependencies (all via CDN, no npm)
 
 - **Tailwind CSS** — Play CDN (`cdn.tailwindcss.com`); custom config inlined in `<head>` (brand colors, Montserrat font). Custom CSS in `styles/main.css` handles what utilities can't express.
-- **AOS.js 2.3.4** — scroll-triggered animations (`unpkg.com/aos`); initialized with `once: true` in `main.js`
-- **Font Awesome 6.5** — icon library (`cdnjs`)
+- **Font Awesome 6.5** — icon library (`cdnjs`).
+- **Google Fonts** — Montserrat loaded via `fonts.googleapis.com`.
+- **No AOS.js** — scroll animations use a custom native `IntersectionObserver` in `initScrollReveal()` that reuses the `data-aos` / `data-aos-delay` HTML attributes and the `aos-animate` class.
+
+## Bilingual i18n System
+
+`main.js` exports a `T` object with `es` and `en` keys containing every user-visible string. Language is stored in `localStorage` under `'portfolio-lang'` (default `'es'`).
+
+- Elements with `data-i18n="key"` have their `textContent` replaced on language switch.
+- Elements with `data-i18n-ph="key"` have their `placeholder` replaced.
+- The `#lang-toggle` button in the navbar toggles between `ES` / `EN`.
+- `applyLang(l)` applies translations, updates `<html lang>`, and updates `document.title`.
+
+To add or change visible text: update both `T.es` and `T.en` in `main.js`, then add the matching `data-i18n` attribute to the HTML element.
+
+## Dark / Light Theme
+
+Theme is persisted in `localStorage` under `'portfolio-theme'` (`'dark'` | `'light'`). A blocking inline `<script>` in `<head>` sets `data-theme` on `<html>` before render to avoid flash of unstyled content.
+
+- CSS custom properties in `:root` / `html[data-theme='dark']` control all themed values (`--page-bg`, `--brand`, `--brand-ring`, etc.).
+- `main.css` overrides Tailwind utility classes (e.g. `.bg-white`, `.text-slate-900`) directly with `!important` for dark mode — this is intentional since Tailwind Play CDN doesn't support `darkMode: 'class'` config at runtime.
+- During transitions, `html.theme-transitioning` class is added for ~420 ms to enable smooth cross-property animations. Respects `prefers-reduced-motion`.
+- `applyTheme(nextTheme, animate)` in `main.js` drives all theme changes.
 
 ## Skill Progress Bars
 
-Progress bars use a CSS `scaleX` trick triggered by AOS: the bar div has class `progress-bar-fill` (starts at `scaleX(0)`), and when AOS adds `aos-animate` to the parent `[data-aos]` wrapper, CSS transitions it to `scaleX(1)`. Do not remove the `data-aos` wrapper or rename `.progress-bar-fill`.
+Progress bars use a CSS `scaleX` trick triggered by the scroll reveal observer: the bar div has class `progress-bar-fill` (starts at `scaleX(0)`), and when the observer adds `aos-animate` to the parent `[data-aos]` wrapper, CSS transitions it to `scaleX(1)`. Do not remove the `data-aos` wrapper or rename `.progress-bar-fill`.
+
+## Contact Form
+
+The contact `<form>` posts to Formspree (`https://formspree.io/f/xgeppeer`) via standard HTML `method="POST"`. No JS is involved in form submission.
 
 ## Updating Content
 
-All visible text lives in `index.html`. CV download link: `docs/Alejandro Gómez C.V (30-09-2024).pdf`.
+All visible text is driven by the i18n `T` object in `main.js` (for dynamic elements) and hardcoded in `index.html` only for structural/static values (e.g. dates, company names). CV download link: `docs/Alejandro Gómez C.V (30-09-2024).pdf`.
