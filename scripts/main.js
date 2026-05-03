@@ -8,6 +8,9 @@ const T = {
     'nav.contact':    'Contacto',
 
     'hero.download':          'Descargar CV',
+    'hero.role_primary':      'Arquitecto de Software',
+    'hero.role_secondary':    'Amante del código limpio, los equipos que crecen y el software que deja huella',
+    'hero.badge':             '4+ años · Banca · Microservicios · AWS',
     'hero.typewriter':        'Arquitecto de Software & Desarrollador Full-Stack',
     'hero.typewriter_mobile': 'Arquitecto de Software &\nDesarrollador Full-Stack',
 
@@ -81,6 +84,9 @@ const T = {
     'nav.contact':    'Contact',
 
     'hero.download':          'Download CV',
+    'hero.role_primary':      'Software Architect',
+    'hero.role_secondary':    'Passionate about clean code, growing teams, and software that leaves a mark',
+    'hero.badge':             '4+ years · Banking · Microservices · AWS',
     'hero.typewriter':        'Software Architect & Full-Stack Developer',
     'hero.typewriter_mobile': 'Software Architect &\nFull-Stack Developer',
 
@@ -149,7 +155,6 @@ const T = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let lang = localStorage.getItem('portfolio-lang') || 'es';
-let typewriterTimeout = null;
 
 // ── i18n ──────────────────────────────────────────────────────────────────────
 function applyLang(l) {
@@ -168,7 +173,6 @@ function applyLang(l) {
 
   document.getElementById('lang-toggle').textContent = l === 'es' ? 'EN' : 'ES';
   document.title = T[l]['meta.title'];
-  startTypewriter(l);
 }
 
 // ── Typewriter ────────────────────────────────────────────────────────────────
