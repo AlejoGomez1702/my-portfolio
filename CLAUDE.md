@@ -12,11 +12,11 @@ Open `index.html` directly in a browser. No dev server, no npm, no build command
 
 ## Architecture
 
-Single-page site (`index.html`) with all sections inline: hero, about, experience, skills, portfolio, education, and contact.
+Single-page site (`index.html`) with all sections inline. Section IDs (in order): `top` (hero), `about`, `experience`, `projects`, `certs` (certifications carousel), `education`, `contact`.
 
-- `styles/main.css` — ~366 lines. Custom CSS only: CSS custom properties for theming, dark-mode Tailwind overrides, navbar scroll, hero gradient, profile ring animation, scroll reveal, progress bars, timeline, mobile nav drawer, WhatsApp FAB.
-- `scripts/main.js` — ~384 lines. Contains the full translations object (`T`), i18n engine, theme toggle, typewriter, native scroll reveal (IntersectionObserver), navbar scroll toggle, and mobile menu toggle.
-- `images/` — profile photos (`perfil-alejo.png`, `perfil-alejo-light.png`), hero background, contact section background, favicon variants.
+- `styles/main.css` — Custom CSS only: CSS custom properties for theming, dark-mode Tailwind overrides, navbar scroll, hero gradient, profile ring animation, scroll reveal, progress bars, timeline, certificates carousel + lightbox, contact card glassmorphism, mobile nav drawer, WhatsApp FAB.
+- `scripts/main.js` — Contains the full translations object (`T`), i18n engine, theme toggle, typewriter, native scroll reveal (IntersectionObserver), certificates carousel with lightbox, navbar scroll toggle, and mobile menu toggle.
+- `images/` — profile photos (`perfil-alejo.png`, `perfil-alejo-light.png`, `profile.jpg` used as og:image), hero background, contact section background, `favicon/ag.svg`, `certs/` (certificate JPGs used by the carousel).
 - `docs/` — latest CV PDF linked from the page.
 
 ## Key Dependencies (all via CDN, no npm)
@@ -50,6 +50,18 @@ Theme is persisted in `localStorage` under `'portfolio-theme'` (`'dark'` | `'lig
 ## Skill Progress Bars
 
 Progress bars use a CSS `scaleX` trick triggered by the scroll reveal observer: the bar div has class `progress-bar-fill` (starts at `scaleX(0)`), and when the observer adds `aos-animate` to the parent `[data-aos]` wrapper, CSS transitions it to `scaleX(1)`. Do not remove the `data-aos` wrapper or rename `.progress-bar-fill`.
+
+## Certificates Carousel
+
+`initCertCarousel()` in `main.js` drives the `#certs` section. Key details:
+
+- Responsive: 1 card on mobile, 2 on tablet (≥640px), 3 on desktop (≥1024px). Card widths set via `.cert-card` flex-basis in CSS.
+- Images in `images/certs/` are hidden until their `<img>` fires `load` — JS then adds `.img-loaded` to the `.cert-img-area`; without it a `.cert-img-fallback` placeholder is shown.
+- `.cert-card-inner.is-clickable` (set after image loads) enables zoom-in cursor and triggers the lightbox on click.
+- **Lightbox** — `openLightbox(src, alt)` appends a `.cert-lightbox` overlay to `<body>`, using two `requestAnimationFrame` calls to trigger the CSS open transition. Closes on backdrop click, close button, or Escape key.
+- Auto-advance every 4500ms; pauses on `mouseenter`, resumes on `mouseleave`.
+- Touch swipe supported (>40px delta on `touchend`).
+- `typewriterTimeout` in `startTypewriter()` is an undeclared implicit global (non-strict JS). `startTypewriter` is defined but not wired in `DOMContentLoaded` — it exists for manual or future use.
 
 ## Contact Form
 
