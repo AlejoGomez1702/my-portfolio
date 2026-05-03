@@ -23,6 +23,7 @@ Single-page site (`index.html`) with all sections inline: hero, about, experienc
 
 - **Tailwind CSS** — Play CDN (`cdn.tailwindcss.com`); custom config inlined in `<head>` (brand colors, Montserrat font). Custom CSS in `styles/main.css` handles what utilities can't express.
 - **Font Awesome 6.5** — icon library (`cdnjs`).
+- **Devicon v2.16.0** — technology logo icon font (`jsdelivr`); used for tech stack icons in the Experience section chips and the Tech Stack section. Class pattern: `devicon-<tech>-plain colored`. Express and Nginx icons are dark and need the CSS rule `html[data-theme='dark'] .devicon-express-original, .devicon-nginx-original { filter: invert(0.85) brightness(1.8) }` to be visible in dark mode.
 - **Google Fonts** — Montserrat loaded via `fonts.googleapis.com`.
 - **No AOS.js** — scroll animations use a custom native `IntersectionObserver` in `initScrollReveal()` that reuses the `data-aos` / `data-aos-delay` HTML attributes and the `aos-animate` class.
 

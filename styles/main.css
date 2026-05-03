@@ -316,6 +316,12 @@ section[id] { scroll-margin-top: 5rem; }
   }
 }
 
+/* ── Dark icons (Express, Nginx) need inversion in dark mode ──────────── */
+html[data-theme='dark'] .devicon-express-original,
+html[data-theme='dark'] .devicon-nginx-original {
+  filter: invert(0.85) brightness(1.8) !important;
+}
+
 /* ── Footer icons ─────────────────────────────────────────────────────── */
 .footer-icon {
   transition: color 0.2s ease, transform 0.2s ease;
