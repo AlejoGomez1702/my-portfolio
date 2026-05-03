@@ -419,7 +419,7 @@ function initCertCarousel() {
     }
   }
 
-  function startAuto()  { autoTimer = setInterval(() => goTo(current >= maxIdx() ? 0 : current + 1), 4500); }
+  function startAuto()  { autoTimer = setInterval(() => goTo(current >= maxIdx() ? 0 : current + 1), 8000); }
   function stopAuto()   { clearInterval(autoTimer); }
   function resetAuto()  { stopAuto(); startAuto(); }
 
@@ -441,35 +441,80 @@ function initCertCarousel() {
   });
 
   // Lightbox
-  cards.forEach(card => {
+  cards.forEach((card, idx) => {
     card.querySelector('.cert-card-inner').addEventListener('click', () => {
-      const inner = card.querySelector('.cert-card-inner');
-      if (!inner.classList.contains('is-clickable')) return;
-      const img = card.querySelector('.cert-img-area img');
-      if (img && img.naturalWidth > 0) openLightbox(img.src, img.alt);
+      if (!card.querySelector('.cert-card-inner').classList.contains('is-clickable')) return;
+      openLightbox(idx);
     });
   });
 
-  function openLightbox(src, alt) {
+  function openLightbox(startIdx) {
+    let lbIdx = startIdx;
+    let lbTouchX = 0;
     stopAuto();
+
     const overlay = document.createElement('div');
     overlay.className = 'cert-lightbox';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.innerHTML = `
+      <button class="cert-lightbox-nav cert-lightbox-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
       <div class="cert-lightbox-inner">
         <button class="cert-lightbox-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
-        <img src="${src}" alt="${alt}">
-      </div>`;
+        <img src="" alt="">
+        <div class="cert-lightbox-footer">
+          <p class="cert-lightbox-caption"></p>
+          <span class="cert-lightbox-counter"></span>
+        </div>
+      </div>
+      <button class="cert-lightbox-nav cert-lightbox-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>`;
+
+    const imgEl     = overlay.querySelector('img');
+    const captionEl = overlay.querySelector('.cert-lightbox-caption');
+    const counterEl = overlay.querySelector('.cert-lightbox-counter');
+    const prevLbBtn = overlay.querySelector('.cert-lightbox-prev');
+    const nextLbBtn = overlay.querySelector('.cert-lightbox-next');
+    const closeBtn  = overlay.querySelector('.cert-lightbox-close');
+
+    const renderLb = () => {
+      const cardImg = cards[lbIdx].querySelector('.cert-img-area img');
+      imgEl.src = cardImg ? cardImg.src : '';
+      imgEl.alt = cardImg ? cardImg.alt : '';
+      captionEl.textContent = cardImg ? cardImg.alt : '';
+      counterEl.textContent = `${lbIdx + 1} / ${N}`;
+      prevLbBtn.disabled = lbIdx === 0;
+      nextLbBtn.disabled = lbIdx === N - 1;
+    };
+
     document.body.appendChild(overlay);
+    renderLb();
     requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('open')));
+
     const close = () => {
       overlay.classList.remove('open');
       setTimeout(() => { overlay.remove(); startAuto(); }, 320);
+      document.removeEventListener('keydown', onKey);
     };
+
+    const prev = () => { if (lbIdx > 0)     { lbIdx--; renderLb(); } };
+    const next = () => { if (lbIdx < N - 1) { lbIdx++; renderLb(); } };
+
+    prevLbBtn.addEventListener('click', e => { e.stopPropagation(); prev(); });
+    nextLbBtn.addEventListener('click', e => { e.stopPropagation(); next(); });
+    closeBtn.addEventListener('click', close);
     overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
-    overlay.querySelector('.cert-lightbox-close').addEventListener('click', close);
-    const onKey = e => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onKey); } };
+
+    overlay.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+    overlay.addEventListener('touchend', e => {
+      const diff = lbTouchX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+    }, { passive: true });
+
+    const onKey = e => {
+      if (e.key === 'Escape')     close();
+      if (e.key === 'ArrowLeft')  prev();
+      if (e.key === 'ArrowRight') next();
+    };
     document.addEventListener('keydown', onKey);
   }
 

@@ -539,6 +539,8 @@ html[data-theme='dark'] .contact-social {
   flex: 0 0 84%;
   padding: 0 0.375rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 640px)  { .cert-card { flex: 0 0 50%; } }
 @media (min-width: 1024px) { .cert-card { flex: 0 0 calc(100% / 3); } }
@@ -550,6 +552,9 @@ html[data-theme='dark'] .contact-social {
   border: 1px solid #f1f5f9;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .cert-card-inner:hover {
   transform: translateY(-4px);
@@ -568,7 +573,7 @@ html[data-theme='dark'] .contact-social {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: none; /* hidden until JS confirms load */
 }
 .cert-img-area.img-loaded img          { display: block; }
@@ -595,7 +600,7 @@ html[data-theme='dark'] .contact-social {
 }
 
 /* Card info */
-.cert-info { padding: 0.875rem 1rem 1rem; }
+.cert-info { padding: 0.875rem 1rem 1rem; flex: 1; }
 .cert-issuer {
   display: block;
   font-size: 0.625rem;
@@ -706,33 +711,39 @@ html[data-theme='dark'] .cert-dot { background: #334155; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 4rem 1.5rem 1.5rem;
   transition: background 0.3s ease;
 }
-.cert-lightbox.open { background: rgba(0, 0, 0, 0.88); }
+.cert-lightbox.open { background: rgba(2, 6, 23, 0.93); }
+
 .cert-lightbox-inner {
   position: relative;
-  max-width: min(900px, 100%);
-  max-height: 85vh;
-  transform: scale(0.92);
+  max-width: min(860px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.93);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .cert-lightbox.open .cert-lightbox-inner { transform: scale(1); opacity: 1; }
+
 .cert-lightbox-inner img {
   display: block;
   max-width: 100%;
-  max-height: 85vh;
+  max-height: 74vh;
   object-fit: contain;
   border-radius: 0.75rem;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
 }
+
+/* Close button */
 .cert-lightbox-close {
   position: absolute;
-  top: -0.75rem;
-  right: -0.75rem;
-  width: 2rem;
-  height: 2rem;
+  top: -0.875rem;
+  right: -0.875rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
   background: #fff;
   border: none;
@@ -741,12 +752,76 @@ html[data-theme='dark'] .cert-dot { background: #334155; }
   align-items: center;
   justify-content: center;
   color: #1e293b;
-  font-size: 0.875rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  font-size: 0.9375rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   transition: background 0.2s ease, transform 0.2s ease;
-  z-index: 1;
+  z-index: 2;
 }
-.cert-lightbox-close:hover { background: #f1f5f9; transform: scale(1.1); }
+.cert-lightbox-close:hover { background: #f1f5f9; transform: scale(1.12); }
+
+/* Prev / Next nav buttons */
+.cert-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.cert-lightbox-nav:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-50%) scale(1.08);
+}
+.cert-lightbox-nav:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+.cert-lightbox-prev { left: 1rem; }
+.cert-lightbox-next { right: 1rem; }
+
+/* Caption + counter */
+.cert-lightbox-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.875rem;
+  width: 100%;
+  padding: 0 0.25rem;
+}
+.cert-lightbox-caption {
+  color: rgba(203, 213, 225, 0.9);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.45;
+  flex: 1;
+  margin: 0;
+}
+.cert-lightbox-counter {
+  color: rgba(100, 116, 139, 0.9);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 0.1rem;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 640px) {
+  .cert-lightbox { padding: 3.5rem 0.75rem 1rem; }
+  .cert-lightbox-prev { left: 0.5rem; }
+  .cert-lightbox-next { right: 0.5rem; }
+  .cert-lightbox-nav  { width: 2.5rem; height: 2.5rem; font-size: 0.875rem; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .cert-track,
