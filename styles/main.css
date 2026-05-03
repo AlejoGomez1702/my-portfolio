@@ -177,6 +177,7 @@ section[id] { scroll-margin-top: 5rem; }
   [data-i18n="hero.badge"] {
     white-space: normal;
     line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 }
 
