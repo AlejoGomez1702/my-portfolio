@@ -261,39 +261,84 @@
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-10 md:mb-12" data-aos="fade-up" data-i18n="exp.title">Experiencia Laboral</h2>
 
+        <!-- ── Banco Davivienda (grouped) ── -->
         <div class="timeline-item pl-12 sm:pl-14 mb-8" data-aos="fade-up">
           <div class="absolute left-0 top-0 w-9 h-9 sm:w-10 sm:h-10 bg-brand rounded-full flex items-center justify-center shadow-md">
-            <i class="fa-solid fa-briefcase text-white text-xs sm:text-sm"></i>
+            <i class="fa-solid fa-building-columns text-white text-xs sm:text-sm"></i>
           </div>
-          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
-            <span class="text-brand text-xs font-semibold uppercase tracking-wide" data-i18n="exp.1.date">Mayo 2021 – Presente</span>
-            <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1" data-i18n="exp.1.role">Arquitecto &amp; Desarrollador Full-Stack</h4>
-            <p class="text-slate-500 font-semibold text-sm mb-3">Banco Davivienda</p>
-            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.1.desc">Desarrollo Backend y Frontend, Microservicios y Microfrontends (Node, Spring, Quarkus, NestJS, Express, Angular, Dialogflow, Google Apps Script). Diseño de arquitecturas (AWS), contenerización.</p>
+          <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <!-- Company header -->
+            <div class="flex items-center gap-3 px-5 sm:px-6 py-3.5 bg-slate-50 border-b border-slate-100">
+              <div>
+                <p class="font-bold text-slate-900 text-sm">Banco Davivienda</p>
+                <p class="text-[11px] text-slate-400 mt-0.5" data-i18n="exp.dv.total">5 años 1 mes</p>
+              </div>
+            </div>
+            <!-- Roles -->
+            <div class="divide-y divide-slate-50">
+              <!-- Especialista I -->
+              <div class="px-5 sm:px-6 py-4">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 mb-1.5">
+                  <h4 class="text-sm font-bold text-slate-900" data-i18n="exp.dv1.role">Especialista I – Arquitecturas Ágiles</h4>
+                  <span class="text-brand text-[11px] font-semibold shrink-0" data-i18n="exp.dv1.date">Abr 2025 – Presente · 1 año</span>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.dv1.desc">Liderazgo técnico de equipos ágiles para soluciones distribuidas en AWS. Administración de building blocks reutilizables: APIs REST, GraphQL y caché en Redis. Buenas prácticas de testing y escalabilidad con Angular, Quarkus y NestJS. Gestión con Jira / SCRUM.</p>
+              </div>
+              <!-- Profesional III -->
+              <div class="px-5 sm:px-6 py-4">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 mb-1.5">
+                  <h4 class="text-sm font-bold text-slate-900" data-i18n="exp.dv2.role">Profesional III – Arquitecturas Ágiles</h4>
+                  <span class="text-brand text-[11px] font-semibold shrink-0" data-i18n="exp.dv2.date">May 2023 – Abr 2025 · 2 años</span>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.dv2.desc">Liderazgo de equipos ágiles para implementación de software concurrente sobre AWS. Arquitecturas de microservicios y microfrontends con Angular, Quarkus y NestJS. Gestión de proyectos con Jira bajo SCRUM.</p>
+              </div>
+              <!-- Profesional II -->
+              <div class="px-5 sm:px-6 py-4">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 mb-1.5">
+                  <h4 class="text-sm font-bold text-slate-900" data-i18n="exp.dv3.role">Profesional II – Proyectos TI CRM</h4>
+                  <span class="text-brand text-[11px] font-semibold shrink-0" data-i18n="exp.dv3.date">Ene 2022 – May 2023 · 1 año 5 meses</span>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.dv3.desc">Mantenimiento e implementación de funcionalidades en el CRM del banco. Desarrollo Frontend y Backend con Angular, Spring, CI/CD, Weblogic, Jenkins, Gulp y Oracle.</p>
+              </div>
+              <!-- Profesional I -->
+              <div class="px-5 sm:px-6 py-4">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 mb-1.5">
+                  <h4 class="text-sm font-bold text-slate-900" data-i18n="exp.dv4.role">Profesional I – Auditoría TI y Ciberseguridad</h4>
+                  <span class="text-brand text-[11px] font-semibold shrink-0" data-i18n="exp.dv4.date">May 2021 – Ene 2022 · 9 meses</span>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.dv4.desc">Desarrollo de proyectos web y chatbot (Day2Day, AuditBot) para automatización de procesos. Stack: NodeJS, ExpressJS, MongoDB, Dialogflow, Angular, Firebase y Heroku.</p>
+              </div>
+            </div>
           </div>
         </div>
 
+        <!-- ── AJ Creative Studios ── -->
         <div class="timeline-item pl-12 sm:pl-14 mb-8" data-aos="fade-up">
           <div class="absolute left-0 top-0 w-9 h-9 sm:w-10 sm:h-10 bg-brand rounded-full flex items-center justify-center shadow-md">
-            <i class="fa-solid fa-briefcase text-white text-xs sm:text-sm"></i>
+            <i class="fa-solid fa-palette text-white text-xs sm:text-sm"></i>
           </div>
           <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
-            <span class="text-brand text-xs font-semibold uppercase tracking-wide" data-i18n="exp.2.date">Junio 2020 – Noviembre 2020</span>
-            <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1" data-i18n="exp.2.role">Desarrollador Full-Stack</h4>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 mb-1">
+              <h4 class="text-base sm:text-lg font-bold text-slate-900" data-i18n="exp.2.role">Desarrollador Web</h4>
+              <span class="text-brand text-xs font-semibold shrink-0" data-i18n="exp.2.date">Jun 2020 – Nov 2020 · 6 meses</span>
+            </div>
             <p class="text-slate-500 font-semibold text-sm mb-3">AJ Creative Studios</p>
-            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.2.desc">Desarrollo Backend y Frontend (Ionic, Firebase, HTML, CSS3, JS, WordPress).</p>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.2.desc">Desarrollo Frontend y Backend con Ionic, Firebase, HTML, CSS3, JS y WordPress para clientes internacionales (EE.UU.).</p>
           </div>
         </div>
 
+        <!-- ── Alcaldía de Aguadas ── -->
         <div class="timeline-item pl-12 sm:pl-14" data-aos="fade-up">
           <div class="absolute left-0 top-0 w-9 h-9 sm:w-10 sm:h-10 bg-brand rounded-full flex items-center justify-center shadow-md">
-            <i class="fa-solid fa-briefcase text-white text-xs sm:text-sm"></i>
+            <i class="fa-solid fa-landmark text-white text-xs sm:text-sm"></i>
           </div>
           <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
-            <span class="text-brand text-xs font-semibold uppercase tracking-wide" data-i18n="exp.3.date">Febrero 2020 – Mayo 2020</span>
-            <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-1" data-i18n="exp.3.role">Desarrollador Full-Stack</h4>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 mb-1">
+              <h4 class="text-base sm:text-lg font-bold text-slate-900" data-i18n="exp.3.role">Desarrollador Web</h4>
+              <span class="text-brand text-xs font-semibold shrink-0" data-i18n="exp.3.date">Feb 2020 – May 2020 · 4 meses</span>
+            </div>
             <p class="text-slate-500 font-semibold text-sm mb-3">Alcaldía de Aguadas</p>
-            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.3.desc">Desarrollo del Sistema PQRS (Laravel, MySQL, Angular).</p>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="exp.3.desc">Desarrollo v1.0 del sistema PQRS con Laravel, MySQL y Angular. Centralización de información, mejora de tiempos de respuesta y digitalización de solicitudes ciudadanas.</p>
           </div>
         </div>
 
