@@ -58,10 +58,15 @@ Progress bars use a CSS `scaleX` trick triggered by the scroll reveal observer: 
 - Responsive: 1 card on mobile, 2 on tablet (≥640px), 3 on desktop (≥1024px). Card widths set via `.cert-card` flex-basis in CSS.
 - Images in `images/certs/` are hidden until their `<img>` fires `load` — JS then adds `.img-loaded` to the `.cert-img-area`; without it a `.cert-img-fallback` placeholder is shown.
 - `.cert-card-inner.is-clickable` (set after image loads) enables zoom-in cursor and triggers the lightbox on click.
-- **Lightbox** — `openLightbox(src, alt)` appends a `.cert-lightbox` overlay to `<body>`, using two `requestAnimationFrame` calls to trigger the CSS open transition. Closes on backdrop click, close button, or Escape key.
-- Auto-advance every 4500ms; pauses on `mouseenter`, resumes on `mouseleave`.
+- **Lightbox** — `openLightbox(startIdx)` appends a `.cert-lightbox` overlay to `<body>`, using two `requestAnimationFrame` calls to trigger the CSS open transition. Supports prev/next buttons, backdrop click, close button, Escape key, and ArrowLeft/ArrowRight keyboard navigation.
+- **Dot pagination** — `buildDots()` / `syncDots()` cap visible dots at 7 via a sliding window. Dots outside the window get `data-dot-state='hidden'`; edge dots get `data-dot-state='edge'` (styled smaller in CSS).
+- Auto-advance every 8000ms; pauses on `mouseenter`, resumes on `mouseleave`.
 - Touch swipe supported (>40px delta on `touchend`).
-- `typewriterTimeout` in `startTypewriter()` is an undeclared implicit global (non-strict JS). `startTypewriter` is defined but not wired in `DOMContentLoaded` — it exists for manual or future use.
+- `typewriterTimeout` in `startTypewriter()` is an undeclared implicit global (non-strict JS). `startTypewriter` is defined but not called anywhere — it exists for manual or future use.
+
+## Initialisation Order
+
+`DOMContentLoaded` calls in sequence: `initScrollReveal()` → `initCertCarousel()` → `applyTheme(theme, false)` → `applyLang(lang)`. Theme is applied without animation on first load to prevent a transition flash.
 
 ## Contact Form
 
