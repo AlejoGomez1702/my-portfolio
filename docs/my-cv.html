@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV – Luis Alejandro Gómez Castaño | Arquitecto de Software</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #16a34a;
+      --green-dark:  #15803d;
+      --green-light: #dcfce7;
+      --green-soft:  #f0fdf4;
+      --sidebar-bg:  #0f1f14;
+      --text-main:   #1e293b;
+      --text-muted:  #64748b;
+      --text-light:  #94a3b8;
+      --border:      #e2e8f0;
+    }
+
+    body {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-size: 10.5px;
+      color: var(--text-main);
+      background: #f1f5f9;
+      line-height: 1.5;
+    }
+
+    /* ── Print bar (screen only) ──────────────── */
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+    .print-bar a { color: #fff; text-decoration: none; opacity: .8; font-size: 10.5px; font-weight: 500; }
+    .print-bar a:hover { opacity: 1; }
+    .btn-print {
+      background: #fff;
+      color: var(--green-dark);
+      border: none;
+      border-radius: 5px;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 10.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background .15s;
+    }
+    .btn-print:hover { background: var(--green-light); }
+
+    /* ── Page wrapper ─────────────────────────── */
+    .page {
+      max-width: 760px;
+      min-height: 1050px;
+      margin: 14px auto 36px;
+      background: #fff;
+      box-shadow: 0 4px 28px rgba(0,0,0,.12);
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ── Header ───────────────────────────────── */
+    .cv-header {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #0b1f12 0%, #1a3a22 55%, #15803d 100%);
+      padding: 22px 28px 18px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .cv-header-photo {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 2.5px solid var(--green);
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(22,163,74,.2);
+    }
+    .cv-header-placeholder {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 2.5px solid var(--green);
+      background: #162b1d;
+      flex-shrink: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px; font-weight: 800;
+      color: var(--green);
+    }
+    .cv-header-name {
+      font-size: 20px; font-weight: 800;
+      color: #fff; letter-spacing: -.4px;
+      line-height: 1.2;
+    }
+    .cv-header-role {
+      font-size: 10.5px; font-weight: 700;
+      color: var(--green);
+      margin-top: 3px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+    .cv-header-tagline {
+      font-size: 9.5px; color: rgba(255,255,255,.5);
+      margin-top: 4px; font-weight: 400;
+    }
+    .cv-header-contact {
+      display: flex; flex-wrap: wrap;
+      gap: 5px 16px; margin-top: 10px;
+    }
+    .cv-header-contact a,
+    .cv-header-contact span {
+      font-size: 9.5px; font-weight: 500;
+      color: rgba(255,255,255,.72);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .cv-header-contact a:hover { color: #fff; }
+
+    /* ── Sidebar ──────────────────────────────── */
+    .cv-sidebar {
+      background: var(--sidebar-bg);
+      padding: 20px 16px;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .s-title {
+      font-size: 8.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.4px;
+      color: var(--green); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .s-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: rgba(22,163,74,.28);
+    }
+
+    /* Soft skills */
+    .soft-skill {
+      display: flex; align-items: center;
+      gap: 8px; margin-bottom: 7px;
+    }
+    .soft-icon {
+      width: 22px; height: 22px;
+      background: rgba(22,163,74,.14);
+      border: 1px solid rgba(22,163,74,.22);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .soft-icon svg {
+      width: 11px; height: 11px;
+      color: var(--green); fill: none;
+      stroke: currentColor; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .soft-label {
+      font-size: 10px; font-weight: 600;
+      color: rgba(255,255,255,.88);
+    }
+
+    /* Tech stack */
+    .tech-group { margin-bottom: 8px; }
+    .tech-group-label {
+      font-size: 8px; text-transform: uppercase;
+      letter-spacing: 1px; color: rgba(255,255,255,.32);
+      font-weight: 700; margin-bottom: 4px;
+    }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .tech-tag {
+      background: rgba(22,163,74,.11);
+      border: 1px solid rgba(22,163,74,.2);
+      color: rgba(255,255,255,.75);
+      font-size: 9px; font-weight: 600;
+      padding: 2px 6px; border-radius: 3px;
+    }
+
+    /* Languages */
+    .lang-item { margin-bottom: 7px; }
+    .lang-name {
+      font-size: 10px; font-weight: 600;
+      color: rgba(255,255,255,.85);
+      display: flex; justify-content: space-between;
+      margin-bottom: 3px;
+    }
+    .lang-level { font-size: 8px; color: var(--green); font-weight: 700; letter-spacing: .4px; }
+    .lang-bar { height: 2.5px; background: rgba(255,255,255,.1); border-radius: 2px; overflow: hidden; }
+    .lang-bar-fill { height: 100%; background: var(--green); border-radius: 2px; }
+
+    /* ── Main ─────────────────────────────────── */
+    .cv-main {
+      padding: 20px 22px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .m-title {
+      font-size: 9px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.4px;
+      color: var(--green-dark); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .m-title::after {
+      content: ''; flex: 1; height: 2px; background: var(--green-light);
+    }
+
+    /* Profile */
+    .profile-text {
+      font-size: 10px; color: var(--text-main);
+      line-height: 1.65; font-weight: 400;
+    }
+
+    /* Experience */
+    .exp-block { margin-bottom: 12px; }
+    .exp-co-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px 6px 10px;
+      background: var(--green-soft);
+      border-left: 3px solid var(--green);
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 9px;
+    }
+    .exp-co-name { font-size: 10.5px; font-weight: 800; color: var(--text-main); flex: 1; }
+    .exp-co-total { font-size: 8.5px; font-weight: 600; color: var(--text-light); }
+
+    .exp-role {
+      padding: 0 0 8px 11px;
+      border-left: 1.5px solid var(--border);
+      position: relative;
+    }
+    .exp-role::before {
+      content: '';
+      position: absolute; left: -4px; top: 4px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border);
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 0 1px var(--border);
+    }
+    .exp-role.current::before {
+      background: var(--green);
+      box-shadow: 0 0 0 1px var(--green-light);
+    }
+    .exp-role:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+    .exp-role-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 6px; margin-bottom: 4px;
+    }
+    .exp-role-left { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+    .exp-role-name { font-size: 10px; font-weight: 700; color: var(--text-main); }
+    .badge-active {
+      font-size: 7.5px; font-weight: 800; letter-spacing: .5px;
+      color: var(--green-dark);
+      background: var(--green-light);
+      border: 1px solid #86efac;
+      padding: 1.5px 5px; border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .exp-role-date {
+      font-size: 8.5px; font-weight: 600;
+      color: var(--text-light); white-space: nowrap; flex-shrink: 0;
+    }
+
+    .bullets { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+    .bullets li {
+      font-size: 9.5px; color: var(--text-muted);
+      line-height: 1.5; padding-left: 10px; position: relative;
+    }
+    .bullets li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--green); font-weight: 700; font-size: 11px; line-height: 1.25;
+    }
+
+    /* Standalone exp */
+    .exp-solo {
+      padding: 0 0 8px 11px;
+      border-left: 1.5px solid var(--border);
+      position: relative;
+    }
+    .exp-solo::before {
+      content: '';
+      position: absolute; left: -4px; top: 4px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border);
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 0 1px var(--border);
+    }
+    .exp-solo:last-child { border-left-color: transparent; padding-bottom: 0; }
+    .exp-solo-co {
+      font-size: 9px; color: var(--text-muted);
+      font-weight: 700; margin-bottom: 3px;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex; align-items: flex-start;
+      gap: 8px; margin-bottom: 6px;
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); margin-top: 3px; flex-shrink: 0;
+    }
+    .edu-degree { font-size: 10px; font-weight: 700; color: var(--text-main); line-height: 1.3; }
+    .edu-inst { font-size: 9px; font-weight: 600; color: var(--green-dark); margin-top: 1px; }
+    .edu-period { font-size: 8.5px; color: var(--text-light); margin-top: 1px; }
+
+    /* ── Print ────────────────────────────────── */
+    @media print {
+      @page { size: A4 portrait; margin: 5mm 6mm; }
+
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; }
+
+      .print-bar { display: none !important; }
+
+      .page {
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        height: 287mm;
+        overflow: hidden;
+      }
+
+      .cv-sidebar,
+      .cv-header,
+      .exp-co-header,
+      .badge-active,
+      .lang-bar-fill,
+      .soft-icon,
+      .tech-tag,
+      .edu-dot,
+      .exp-role.current::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 680px) {
+      .page { grid-template-columns: 1fr; }
+      .cv-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-bar">
+  <a href="../index.html">← Volver al portafolio</a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span style="opacity:.65;font-size:10px">Chrome / Edge → Imprimir → Guardar como PDF → Sin márgenes</span>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8" rx="1"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></svg>
+      Descargar PDF
+    </button>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <img src="../images/perfil-alejo-light.png" alt="Alejandro Gómez" class="cv-header-photo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="cv-header-placeholder">AG</div>
+
+    <div>
+      <h1 class="cv-header-name">Luis Alejandro Gómez Castaño</h1>
+      <p class="cv-header-role">Arquitecto de Software &amp; Desarrollador Full-Stack</p>
+      <p class="cv-header-tagline">5+ años en constante evolución con la tecnología · hoy integrando IA como copiloto de viaje!</p>
+      <div class="cv-header-contact">
+        <a href="mailto:alejandrogomez2339@gmail.com">
+          <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          alejandrogomez2339@gmail.com
+        </a>
+        <span>
+          <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18C2.05 2.1 3.07 1.5 4.09 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14.09 16l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          +57 321 781 6922
+        </span>
+        <a href="https://linkedin.com/in/luis-alejandro-g%C3%B3mez-casta%C3%B1o-08755814a/" target="_blank">
+          <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/luis-alejandro-gómez
+        </a>
+        <a href="https://github.com/AlejoGomez1702" target="_blank">
+          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.216.69.825.572C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          github.com/AlejoGomez1702
+        </a>
+        <span>
+          <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Manizales, Colombia
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="cv-sidebar">
+
+    <section>
+      <div class="s-title">Habilidades Blandas</div>
+
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="soft-label">Liderazgo Técnico</span>
+      </div>
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <span class="soft-label">Pensamiento Estratégico</span>
+      </div>
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <span class="soft-label">Comunicación Efectiva</span>
+      </div>
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <span class="soft-label">Resolución de Problemas</span>
+      </div>
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <span class="soft-label">Mentoría y Desarrollo</span>
+      </div>
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <span class="soft-label">Orientación a Resultados</span>
+      </div>
+      <div class="soft-skill">
+        <div class="soft-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <span class="soft-label">Adaptabilidad</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="s-title">Stack Técnico</div>
+
+      <div class="tech-group">
+        <div class="tech-group-label">Frontend</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Angular</span>
+          <span class="tech-tag">React Native</span>
+          <span class="tech-tag">Ionic</span>
+          <span class="tech-tag">HTML5 / CSS3</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-label">Backend</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Spring Boot</span>
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">NestJS</span>
+          <span class="tech-tag">Quarkus</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Laravel</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-label">Cloud &amp; Datos</div>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">GCP / GKE</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Oracle</span>
+          <span class="tech-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-label">DevOps &amp; Observabilidad</div>
+        <div class="tech-tags">
+          <span class="tech-tag">CI/CD</span>
+          <span class="tech-tag">Jenkins</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Dynatrace</span>
+          <span class="tech-tag">New Relic</span>
+          <span class="tech-tag">GraphQL</span>
+          <span class="tech-tag">Scrum · Jira</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="s-title">Idiomas</div>
+      <div class="lang-item">
+        <div class="lang-name">Español <span class="lang-level">Nativo</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Inglés <span class="lang-level">Intermedio B1</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:58%"></div></div>
+      </div>
+    </section>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="cv-main">
+
+    <!-- Perfil -->
+    <section>
+      <div class="m-title">Perfil Profesional</div>
+      <p class="profile-text">
+        Arquitecto de Software y Desarrollador Full-Stack con más de 5 años de experiencia, la mayor parte en el sector bancario colombiano.
+        He participado en el diseño y evolución de aplicaciones de alto tráfico, liderando equipos ágiles y colaborando en
+        la definición de arquitecturas distribuidas en AWS. Me enfoco en construir software mantenible y escalable aplicando CI/CD,
+        observabilidad con Dynatrace y New Relic, y metodologías ágiles como Scrum, manteniendo siempre las decisiones técnicas
+        alineadas con los objetivos del negocio.
+      </p>
+    </section>
+
+    <!-- Experiencia -->
+    <section>
+      <div class="m-title">Experiencia Laboral</div>
+
+      <!-- Banco Davivienda -->
+      <div class="exp-block">
+        <div class="exp-co-header">
+          <span class="exp-co-name">Banco Davivienda</span>
+          <span class="exp-co-total">May 2021 – Presente · 5 años 1 mes</span>
+        </div>
+
+        <div class="exp-role current">
+          <div class="exp-role-head">
+            <div class="exp-role-left">
+              <span class="exp-role-name">Especialista I – Arquitecturas Ágiles</span>
+              <span class="badge-active">En curso</span>
+            </div>
+            <span class="exp-role-date">Abr 2025 – Presente</span>
+          </div>
+          <ul class="bullets">
+            <li>Participo en el desarrollo y evolución del canal digital principal del banco, colaborando desde la definición de arquitectura hasta la implementación y despliegue en producción.</li>
+            <li>Defino componentes reutilizables en AWS: microservicios Spring Boot/Kotlin, APIs REST/GraphQL y caché Redis, promoviendo consistencia entre equipos del área.</li>
+            <li>Monitoreo salud y rendimiento de servicios con Dynatrace y New Relic, apoyando la estabilidad operativa y la detección temprana de incidentes.</li>
+          </ul>
+        </div>
+
+        <div class="exp-role">
+          <div class="exp-role-head">
+            <span class="exp-role-name">Profesional III – Arquitecturas Ágiles</span>
+            <span class="exp-role-date">May 2023 – Abr 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Diseñé e implementé arquitecturas de microservicios y microfrontends (Angular, Quarkus, NestJS) sobre AWS para proyectos de software concurrente.</li>
+          </ul>
+        </div>
+
+        <div class="exp-role">
+          <div class="exp-role-head">
+            <span class="exp-role-name">Profesional II – Proyectos TI CRM</span>
+            <span class="exp-role-date">Ene 2022 – May 2023</span>
+          </div>
+          <ul class="bullets">
+            <li>Desarrollé e integré funcionalidades en el CRM corporativo del banco con Angular y Spring Boot; gestioné pipelines CI/CD con Jenkins y Oracle DB.</li>
+          </ul>
+        </div>
+
+        <div class="exp-role">
+          <div class="exp-role-head">
+            <span class="exp-role-name">Profesional I – Auditoría TI y Ciberseguridad</span>
+            <span class="exp-role-date">May 2021 – Ene 2022</span>
+          </div>
+          <ul class="bullets">
+            <li>Desarrollé Day2Day y AuditBot, chatbots con Dialogflow y Node.js para automatizar procesos de auditoría interna, con interfaces Angular con Express + MongoDB y Firebase.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AJ Creative Studios -->
+      <div class="exp-solo">
+        <div class="exp-role-head">
+          <div>
+            <span class="exp-role-name">Desarrollador Web</span>
+            <div class="exp-solo-co">AJ Creative Studios</div>
+          </div>
+          <span class="exp-role-date">Jun – Nov 2020</span>
+        </div>
+        <ul class="bullets">
+          <li>Desarrollé soluciones web y móviles con Ionic, Angular y Firebase para clientes en EE.UU.</li>
+        </ul>
+      </div>
+
+      <!-- Alcaldía de Aguadas -->
+      <div class="exp-solo">
+        <div class="exp-role-head">
+          <div>
+            <span class="exp-role-name">Desarrollador Web</span>
+            <div class="exp-solo-co">Alcaldía de Aguadas, Caldas</div>
+          </div>
+          <span class="exp-role-date">Feb – May 2020</span>
+        </div>
+        <ul class="bullets">
+          <li>Desarrollé el sistema PQRS (Laravel + Angular + MySQL) para digitalizar y centralizar solicitudes ciudadanas del municipio.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Educación -->
+    <section>
+      <div class="m-title">Educación</div>
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-degree">Ingeniero de Sistemas</div>
+          <div class="edu-inst">Universidad Autónoma de Manizales</div>
+          <div class="edu-period">2016 – 2020</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot" style="background:#94a3b8"></div>
+        <div>
+          <div class="edu-degree">Técnico en Contabilización de Operaciones Comerciales</div>
+          <div class="edu-inst" style="color:var(--text-muted)">SENA</div>
+          <div class="edu-period">2014 – 2016</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot" style="background:#94a3b8"></div>
+        <div>
+          <div class="edu-degree">Técnico en Soporte y Operación de Sistemas Informáticos</div>
+          <div class="edu-inst" style="color:var(--text-muted)">Colegio Integrado Nacional Oriente de Caldas</div>
+          <div class="edu-period">2014 – 2015</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>
